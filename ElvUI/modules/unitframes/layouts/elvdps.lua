@@ -503,17 +503,25 @@ local function Shared(self, unit)
 			--Totem Bar
 			if E.myclass == "SHAMAN" then
 				local totems = CreateFrame("Frame", nil, self)
-				totems:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
-				totems:SetFrameStrata("LOW")
-				totems:Width(CLASSBAR_WIDTH)
-				totems:Height(POWERBAR_HEIGHT - (BORDER*2))
+				if POWERTHEME == true then
+					totems:Width(CLASSBAR2_WIDTH - BORDER*2)
+					totems:Height(CLASSBAR_HEIGHT - BORDER*2)
+					totems:Point("LEFT", self, "TOPLEFT", (BORDER*2 + 4), BORDER - (CLASSBAR_HEIGHT/2))
+					totems:SetFrameStrata("MEDIUM")
+					totems:SetFrameLevel(self:GetFrameLevel() + 3)
+				else
+					totems:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
+					totems:SetFrameStrata("LOW")
+					totems:Width(CLASSBAR_WIDTH)
+					totems:Height(POWERBAR_HEIGHT - (BORDER*2))
+				end
 				totems.Destroy = true
 
 				for i = 1, 4 do
 					totems[i] = CreateFrame("StatusBar", nil, totems)
 					totems[i]:SetHeight(totems:GetHeight())
-					totems[i]:SetFrameStrata(self:GetFrameStrata())
-					totems[i]:SetFrameLevel(self:GetFrameLevel())
+					totems[i]:SetFrameStrata("MEDIUM")
+					totems[i]:SetFrameLevel(self:GetFrameLevel() + 3)
 					totems[i]:SetWidth(E.Scale(totems:GetWidth() - 3) / 4)
 
 					if (i == 1) then
@@ -538,9 +546,9 @@ local function Shared(self, unit)
 				totems.backdrop:Point("BOTTOMRIGHT", BORDER, -BORDER)
 				totems.backdrop:SetFrameLevel(totems:GetFrameLevel() - 1)
 				
-				totems:HookScript("OnShow", function()
-					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+				totems:HookScript("OnShow", function() --NiteWolf
+					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
 				end)
 				totems:HookScript("OnHide", function()
 					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
