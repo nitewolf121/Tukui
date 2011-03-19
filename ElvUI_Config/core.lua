@@ -1400,7 +1400,7 @@ function ElvuiConfig.GenerateOptionsInternal()
 				},
 			},
 			datatext = {
-				order = 10,
+				order = 8,
 				type = "group",
 				name = L["Data Texts"],
 				desc = L["DATATEXT_DESC"],
