@@ -8,6 +8,8 @@ function E.PP(p, obj)
 	local right = ElvuiInfoRight
 	local mapleft = ElvuiMinimapStatsLeft
 	local mapright = ElvuiMinimapStatsRight
+	local topleft = ElvLeftDataPanel
+	local topright = ElvRightDataPanel
 	local t
 	if obj:GetParent():GetName() == "TimeDataText" or obj:GetParent():GetName() == "DurabilityDataText" then t = true else t = false end
 	
@@ -61,6 +63,19 @@ function E.PP(p, obj)
 			if t ~= true then obj:SetParent(mapright) else obj:GetParent():SetParent(mapright) end
 		end
 	end
+	if ElvLocPanel then
+		if p == 9 then
+			obj:SetHeight(left:GetHeight())
+			obj:SetPoint('TOP', topleft)
+			obj:SetPoint('BOTTOM', topleft)
+			if t ~= true then obj:SetParent(topleft) else obj:GetParent():SetParent(topleft) end
+		elseif p == 10 then
+			obj:SetHeight(left:GetHeight())
+			obj:SetPoint('TOP', topright)
+			obj:SetPoint('BOTTOM', topright)
+			if t ~= true then obj:SetParent(topright) else obj:GetParent():SetParent(topright) end
+		end
+	end
 end
 
 E.DataTextTooltipAnchor = function(self)
@@ -75,6 +90,14 @@ E.DataTextTooltipAnchor = function(self)
 	elseif panel == ElvuiInfoRight then
 		anchor = "ANCHOR_TOPRIGHT"
 		xoff = E.Scale(17)
+	elseif panel == ElvLeftDataPanel then
+		anchor = "ANCHOR_BOTTOMLEFT"
+		yoff = E.Scale(-4)
+		xoff = E.Scale(-4)
+	elseif panel == ElvRightDataPanel then
+		anchor = "ANCHOR_BOTTOMRIGHT"
+		yoff = E.Scale(-4)
+		xoff = E.Scale(4)
 	elseif panel == ElvuiMinimapStatsLeft or panel == ElvuiMinimapStatsRight then
 		local position = select(3, MinimapMover:GetPoint())
 		if position:match("LEFT") then

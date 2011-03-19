@@ -210,6 +210,7 @@ m_zone:SetFrameLevel(5)
 m_zone:SetFrameStrata("LOW")
 m_zone:Point("TOPLEFT", Minimap, "TOPLEFT", 2, -2)
 m_zone:Point("TOPRIGHT",Minimap,-2,-2)
+m_zone:Hide()
 
 local m_zone_text = m_zone:CreateFontString(nil,"Overlay")
 m_zone_text:SetFont(C["media"].font,C["general"].fontscale,"OUTLINE")
@@ -217,18 +218,21 @@ m_zone_text:SetPoint("Center",0,0)
 m_zone_text:SetJustifyH("CENTER")
 m_zone_text:SetJustifyV("MIDDLE")
 m_zone_text:SetHeight(E.Scale(12))
+m_zone_text:Hide()
 
 local m_coord = CreateFrame("Frame",nil,UIParent)
 m_coord:Width(40)
 m_coord:Height(20)
 m_coord:Point("BOTTOMLEFT", Minimap, "BOTTOMLEFT", 2, 2)
 m_coord:SetFrameStrata("LOW")
+m_coord:Hide()
 
 local m_coord_text = m_coord:CreateFontString(nil,"Overlay")
 m_coord_text:SetFont(C["media"].font,C["general"].fontscale,"OUTLINE")
 m_coord_text:SetPoint("Center",E.Scale(-1),0)
 m_coord_text:SetJustifyH("CENTER")
 m_coord_text:SetJustifyV("MIDDLE")
+m_coord_text:Hide()
  
 
 local ela = 0
