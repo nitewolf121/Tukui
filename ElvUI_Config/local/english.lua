@@ -274,7 +274,7 @@ L["Action Bars"] = true
 --Datatext
 L["Data Texts"] = true
 	L["DATATEXT_DESC"] = "Edit display of informational text on panels"
-	L["DATATEXT_POS"] = "\n\n0 - Disabled\n1 - LEFT PANEL, LEFT\n2 - LEFT PANEL, CENTER\n3 - LEFT PANEL, RIGHT\n4 - RIGHT PANEL, LEFT\n5 - RIGHT PANEL, CENTER\n6 - RIGHT PANEL, RIGHT\n7 - MINIMAP LEFT\n8 - MINIMAP RIGHT"
+	L["DATATEXT_POS"] = "\n\n  0 - Disabled\n  1 - LEFT PANEL, LEFT\n  2 - LEFT PANEL, CENTER\n  3 - LEFT PANEL, RIGHT\n  4 - RIGHT PANEL, LEFT\n  5 - RIGHT PANEL, CENTER\n  6 - RIGHT PANEL, RIGHT\n  7 - MINIMAP LEFT\n  8 - MINIMAP RIGHT\n  9 - TOP LEFT\n10 - TOP RIGHT"
 	L["Text Positions"] = true
 	L["BG Text"] = true
 		L["Display special datatexts when inside a battleground"] = true

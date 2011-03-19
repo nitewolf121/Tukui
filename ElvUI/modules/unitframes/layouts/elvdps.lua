@@ -77,7 +77,9 @@ local function Shared(self, unit)
 	if unit == "player" then
 		local POWERBAR_WIDTH = C["unitframes"].playtarwidth/2*E.ResScale
 		local CLASSBAR_WIDTH = (C["unitframes"].playtarwidth - (2*2))*E.ResScale
+		local CLASSBAR2_WIDTH = (C["unitframes"].playtarwidth/1.7)*E.ResScale
 		local POWERBAR_HEIGHT = 10*E.ResScale
+		local CLASSBAR_HEIGHT = 11*E.ResScale
 		local CASTBAR_HEIGHT = 20*E.ResScale
 		local CASTBAR_WIDTH = C["unitframes"].castplayerwidth*E.ResScale
 		local PORTRAIT_WIDTH = 45*E.ResScale
@@ -171,9 +173,9 @@ local function Shared(self, unit)
 			if C["unitframes"].charportrait == true and not C["unitframes"].charportraithealth == true then
 				self.shadow:Point("BOTTOMLEFT", self.Portrait.backdrop, "BOTTOMLEFT", -4, -4)
 			else
-				self.shadow:Point("BOTTOMLEFT", health, "BOTTOMLEFT", -4, -4)
+				self.shadow:Point("BOTTOMLEFT", health, "BOTTOMLEFT", -4, -6)
 			end
-			self.shadow:Point("BOTTOMRIGHT", health, "BOTTOMRIGHT", 4, -4)
+			self.shadow:Point("BOTTOMRIGHT", health, "BOTTOMRIGHT", 4, -6)
 		end				
 				
 		--Auras
@@ -373,18 +375,26 @@ local function Shared(self, unit)
 		end
 
 		--Class Resource Bars
-		if C["unitframes"].classbar == true and (E.myclass == "PALADIN" or E.myclass == "SHAMAN" or E.myclass == "DRUID" or E.myclass == "DEATHKNIGHT" or E.myclass == "WARLOCK") then
+		--if C["unitframes"].classbar == true and (E.myclass == "PALADIN" or E.myclass == "SHAMAN" or E.myclass == "DRUID" or E.myclass == "DEATHKNIGHT" or E.myclass == "WARLOCK") then
 			--Reposition Health Bar for ClassBars
-			health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-			health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+			--health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+			--health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
 			
 			--Soul Shard / Holy Power Bar
 			if E.myclass == "PALADIN" or E.myclass == "WARLOCK" then
 				local bars = CreateFrame("Frame", nil, self)
-				bars:SetFrameStrata("LOW")
-				bars:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
-				bars:Width(CLASSBAR_WIDTH)
-				bars:Height(POWERBAR_HEIGHT - (BORDER*2))
+				if POWERTHEME == true then
+					bars:Width(CLASSBAR2_WIDTH - BORDER*2)
+					bars:Height(CLASSBAR_HEIGHT - BORDER*2)
+					bars:Point("LEFT", self, "TOPLEFT", (BORDER*2 + 4), BORDER - (CLASSBAR_HEIGHT/2))
+					bars:SetFrameStrata("MEDIUM")
+					bars:SetFrameLevel(self:GetFrameLevel() + 3)
+				else
+					bars:SetFrameStrata("LOW")
+					bars:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
+					bars:Width(CLASSBAR_WIDTH)
+					bars:Height(POWERBAR_HEIGHT - (BORDER*2))
+				end
 
 				
 				for i = 1, 3 do					
@@ -424,12 +434,12 @@ local function Shared(self, unit)
 				bars.backdrop:SetFrameLevel(bars:GetFrameLevel() - 1)
 				
 				bars:SetScript("OnShow", function()
-					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
 				end)
 				bars:HookScript("OnHide", function()	
 					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
-					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
+					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
 				end)			
 				
 				if E.myclass == "PALADIN" then
@@ -444,10 +454,18 @@ local function Shared(self, unit)
 			--Rune Bar
 			if E.myclass == "DEATHKNIGHT" then
 				local runes = CreateFrame("Frame", nil, self)
-				runes:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
-				runes:SetFrameStrata("LOW")
-				runes:Width(CLASSBAR_WIDTH)
-				runes:Height(POWERBAR_HEIGHT - (BORDER*2))
+				if POWERTHEME == true then
+					runes:Width(CLASSBAR2_WIDTH - BORDER*2)
+					runes:Height(CLASSBAR_HEIGHT - BORDER*2)
+					runes:Point("LEFT", self, "TOPLEFT", (BORDER*2 + 4), BORDER - (CLASSBAR_HEIGHT/2))
+					runes:SetFrameStrata("MEDIUM")
+					runes:SetFrameLevel(self:GetFrameLevel() + 3)
+				else
+					runes:SetFrameStrata("LOW")
+					runes:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
+					runes:Width(CLASSBAR_WIDTH)
+					runes:Height(POWERBAR_HEIGHT - (BORDER*2))
+				end
 
 				for i = 1, 6 do
 					runes[i] = CreateFrame("StatusBar", nil, runes)
@@ -471,8 +489,8 @@ local function Shared(self, unit)
 				runes.backdrop:SetFrameLevel(runes:GetFrameLevel() - 1)
 
 				runes:HookScript("OnShow", function()
-					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+1))
-					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+1))
+					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
 				end)
 				runes:HookScript("OnHide", function()
 					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
@@ -577,7 +595,7 @@ local function Shared(self, unit)
 				self.EclipseBar = eclipseBar
 				self.EclipseBar.PostUpdatePower = E.EclipseDirection
 			end
-		end
+		--end
 		
 		--Druid Mana
 		if E.myclass == "DRUID" then
