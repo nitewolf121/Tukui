@@ -242,8 +242,8 @@ inforight:SetPoint("BOTTOMRIGHT", chatrbgdummy2, "BOTTOMRIGHT", E.Scale(-17), E.
 	
 local UI
 if ElvUI then UI=ElvUI else UI=Tukui end
-local E, C, L = unpack(UI)
-local font = C.media.datafont1
+local E, C, L, DB = unpack(UI)
+local font = C["media"].font
 
 --Bottom panel
 local botpanel = CreateFrame("Frame", "ElvBottomPanel", UIParent)
