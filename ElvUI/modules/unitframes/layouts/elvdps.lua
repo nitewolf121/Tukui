@@ -338,7 +338,7 @@ local function Shared(self, unit)
 			
 			local resting = self:CreateTexture(nil, "OVERLAY")
 			resting:Size(22)
-			resting:Point("CENTER", health, "TOPLEFT", -3, 6)
+			resting:Point("CENTER", health, "TOPLEFT", -5, 6)
 			resting:SetTexture([=[Interface\CharacterFrame\UI-StateIcon]=])
 			resting:SetTexCoord(0, 0.5, 0, 0.421875)
 			resting:Hide()
@@ -433,14 +433,25 @@ local function Shared(self, unit)
 				bars.backdrop:Point("BOTTOMRIGHT", BORDER, -BORDER)
 				bars.backdrop:SetFrameLevel(bars:GetFrameLevel() - 1)
 				
-				bars:SetScript("OnShow", function()
-					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
-					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
-				end)
-				bars:HookScript("OnHide", function()	
-					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
-					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
-				end)			
+				if POWERTHEME == true then
+					bars:HookScript("OnShow", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
+					end)
+					bars:HookScript("OnHide", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
+					end)
+				else
+					bars:HookScript("OnShow", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+					end)
+					bars:HookScript("OnHide", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
+					end)
+				end			
 				
 				if E.myclass == "PALADIN" then
 					bars.Override = E.UpdateHoly
@@ -488,14 +499,25 @@ local function Shared(self, unit)
 				runes.backdrop:Point("BOTTOMRIGHT", BORDER, -BORDER)
 				runes.backdrop:SetFrameLevel(runes:GetFrameLevel() - 1)
 
-				runes:HookScript("OnShow", function()
-					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
-					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
-				end)
-				runes:HookScript("OnHide", function()
-					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
-					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
-				end)	
+				if POWERTHEME == true then
+					runes:HookScript("OnShow", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
+					end)
+					runes:HookScript("OnHide", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
+					end)
+				else
+					runes:HookScript("OnShow", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+					end)
+					runes:HookScript("OnHide", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
+					end)
+				end	
 				
 				self.Runes = runes
 			end
@@ -520,8 +542,6 @@ local function Shared(self, unit)
 				for i = 1, 4 do
 					totems[i] = CreateFrame("StatusBar", nil, totems)
 					totems[i]:SetHeight(totems:GetHeight())
-					totems[i]:SetFrameStrata("MEDIUM")
-					totems[i]:SetFrameLevel(self:GetFrameLevel() + 3)
 					totems[i]:SetWidth(E.Scale(totems:GetWidth() - 3) / 4)
 
 					if (i == 1) then
@@ -546,14 +566,25 @@ local function Shared(self, unit)
 				totems.backdrop:Point("BOTTOMRIGHT", BORDER, -BORDER)
 				totems.backdrop:SetFrameLevel(totems:GetFrameLevel() - 1)
 				
-				totems:HookScript("OnShow", function() --NiteWolf
-					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
-					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
-				end)
-				totems:HookScript("OnHide", function()
-					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
-					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
-				end)
+				if POWERTHEME == true then
+					totems:HookScript("OnShow", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
+					end)
+					totems:HookScript("OnHide", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
+					end)
+				else
+					totems:HookScript("OnShow", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+					end)
+					totems:HookScript("OnHide", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
+					end)
+				end
 
 				self.TotemBar = totems			
 			end
