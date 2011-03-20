@@ -375,10 +375,15 @@ local function Shared(self, unit)
 		end
 
 		--Class Resource Bars
-		--if C["unitframes"].classbar == true and (E.myclass == "PALADIN" or E.myclass == "SHAMAN" or E.myclass == "DRUID" or E.myclass == "DEATHKNIGHT" or E.myclass == "WARLOCK") then
+		if C["unitframes"].classbar == true and (E.myclass == "PALADIN" or E.myclass == "SHAMAN" or E.myclass == "DRUID" or E.myclass == "DEATHKNIGHT" or E.myclass == "WARLOCK") then
 			--Reposition Health Bar for ClassBars
-			--health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-			--health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+			if POWERTHEME == true then
+				health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+				health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
+			else
+				health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+				health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+			end
 			
 			--Soul Shard / Holy Power Bar
 			if E.myclass == "PALADIN" or E.myclass == "WARLOCK" then
@@ -592,10 +597,18 @@ local function Shared(self, unit)
 			--Eclipse Bar
 			if E.myclass == "DRUID" then
 				local eclipseBar = CreateFrame('Frame', nil, self)
-				eclipseBar:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
-				eclipseBar:SetFrameStrata("LOW")
-				eclipseBar:Width(CLASSBAR_WIDTH)
-				eclipseBar:Height(POWERBAR_HEIGHT - (BORDER*2))
+				if POWERTHEME == true then
+					eclipseBar:Width(CLASSBAR2_WIDTH - BORDER*2)
+					eclipseBar:Height(CLASSBAR_HEIGHT - BORDER*2)
+					eclipseBar:Point("LEFT", self, "TOPLEFT", (BORDER*2 + 4), BORDER - (CLASSBAR_HEIGHT/2))
+					eclipseBar:SetFrameStrata("MEDIUM")
+					eclipseBar:SetFrameLevel(self:GetFrameLevel() + 3)
+				else
+					eclipseBar:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
+					eclipseBar:SetFrameStrata("LOW")
+					eclipseBar:Width(CLASSBAR_WIDTH)
+					eclipseBar:Height(POWERBAR_HEIGHT - (BORDER*2))
+				end
 
 				local lunarBar = CreateFrame('StatusBar', nil, eclipseBar)
 				lunarBar:SetPoint('LEFT', eclipseBar)
@@ -622,19 +635,30 @@ local function Shared(self, unit)
 				eclipseBar.backdrop:Point("BOTTOMRIGHT", lunarBar, "BOTTOMRIGHT", BORDER, -BORDER)
 				eclipseBar.backdrop:SetFrameLevel(eclipseBar:GetFrameLevel() - 1)
 
-				eclipseBar:HookScript("OnShow", function()
-					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-				end)
-				eclipseBar:HookScript("OnHide", function()
-					health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
-					health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
-				end)
+				if POWERTHEME == true then
+					eclipseBar:HookScript("OnShow", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
+					end)
+					eclipseBar:HookScript("OnHide", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
+					end)
+				else
+					eclipseBar:HookScript("OnShow", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+					end)
+					eclipseBar:HookScript("OnHide", function()
+						health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
+					end)
+				end
 				
 				self.EclipseBar = eclipseBar
 				self.EclipseBar.PostUpdatePower = E.EclipseDirection
 			end
-		--end
+		end
 		
 		--Druid Mana
 		if E.myclass == "DRUID" then
