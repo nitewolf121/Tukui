@@ -72,6 +72,7 @@ DB["unitframes"] = {
 	["mini_powerbar"] = false,
 	["showboss"] = true,                   -- enable boss unit frames for PVELOL encounters.
 	["arena"] = true,                 -- enable elvui arena unitframes (requirement : Elvui unitframes enabled)	
+	["swing"] = false,
 	
 	--frame sizes
 	["playtarwidth"] = 275,					--width of player/target frame

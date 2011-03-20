@@ -4,6 +4,10 @@ local LSM = LibStub("LibSharedMedia-3.0")
 local db
 local defaults
 
+if IsAddOnLoaded("ElvUI_ConfigUI") then
+	error("The AddOn 'ElvUI_ConfigUI' is no longer in use, please remove it from you addons folders. The new config addon is called 'ElvUI_Config'")
+end
+
 function ElvuiConfig:LoadDefaults()
 	local _, _, _, DB = unpack(ElvUI)
 	--Defaults
@@ -526,7 +530,7 @@ function ElvuiConfig.GenerateOptionsInternal()
 								order = 5,
 								name = L["Pet's Target"],
 								desc = L["Display the pet unit's target"],
-								disabled = function() return (not db.unitframes.enable or not IsAddOnLoaded("ElvUI_RaidDPS")) end,	
+								disabled = function() return (not db.unitframes.enable or not (IsAddOnLoaded("ElvUI_RaidDPS") or db.general.layoutoverride == "DPS")) end,	
 							},
 							showtotalhpmp = {
 								type = "toggle",
@@ -640,7 +644,14 @@ function ElvuiConfig.GenerateOptionsInternal()
 								type = "toggle",
 								order = 20,
 								name = L["Boss Frames"],							
-							},							
+							},
+							swing = {
+								type = "toggle",
+								order = 21,
+								name = L["Swing Bar"],
+								desc = L["Bar that displays time between melee attacks"],
+								disabled = function() return (not db.unitframes.enable or not (IsAddOnLoaded("ElvUI_RaidDPS") or db.general.layoutoverride == "DPS")) end,	
+							},
 						},
 					},
 					UFSizeGroup = {
