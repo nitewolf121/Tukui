@@ -93,10 +93,8 @@ local function Shared(self, unit)
 		self.shadow:Point("BOTTOMLEFT", -4, -4)
 		self.shadow:Point("BOTTOMRIGHT", 4, -4)		
 
-		if C["unitframes"].charportraithealth == true or C["unitframes"].charportrait == false then
+		if C["unitframes"].charportrait == true then
 			PORTRAIT_WIDTH = 0
-		elseif C["unitframes"].charportrait == true then
-			CLASSBAR_WIDTH = math.ceil(((C["unitframes"].playtarwidth - (2*2)) - 45)*E.ResScale)
 		end
 	
 		--Health Bar
@@ -129,52 +127,25 @@ local function Shared(self, unit)
 		
 		--Portrait
 		if C["unitframes"].charportrait == true then
-			if C["unitframes"].charportraithealth == true then
-				local portrait = CreateFrame("PlayerModel", nil, health)
-				portrait:SetFrameLevel(health:GetFrameLevel() + 1)
-				portrait:SetAllPoints(health)
-				portrait.PostUpdate = function(self) self:SetAlpha(0) self:SetAlpha(0.35) end		
-				self.Portrait = portrait
+			local portrait = CreateFrame("PlayerModel", nil, health)
+			portrait:SetFrameLevel(health:GetFrameLevel() + 1)
+			portrait:SetAllPoints(health)
+			portrait.PostUpdate = function(self) self:SetAlpha(0) self:SetAlpha(0.35) end		
+			self.Portrait = portrait
 				
-				local overlay = CreateFrame("Frame", nil, self)
-				overlay:SetFrameLevel(self:GetFrameLevel() - 2)
+			local overlay = CreateFrame("Frame", nil, self)
+			overlay:SetFrameLevel(self:GetFrameLevel() - 2)
 				
-				health.bg:ClearAllPoints()
-				health.bg:Point('BOTTOMLEFT', health:GetStatusBarTexture(), 'BOTTOMRIGHT')
-				health.bg:Point('TOPRIGHT', health)
-				health.bg:SetDrawLayer("OVERLAY", 7)
-				health.bg:SetParent(overlay)
-			else
-				--Reposition Health
-				health:Point("TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
-				
-				
-				local portrait = CreateFrame("PlayerModel", nil, self)
-				portrait:SetFrameStrata("LOW")
-				portrait.backdrop = CreateFrame("Frame", nil, portrait)
-				portrait.backdrop:SetTemplate("Default")
-				portrait.backdrop:SetPoint("TOPLEFT", self, "TOPLEFT")
-				if POWERTHEME == true then
-					portrait.backdrop:Point("BOTTOMRIGHT", health.backdrop, "BOTTOMLEFT", -SPACING, 0)
-				else
-					portrait.backdrop:Point("BOTTOMRIGHT", power.backdrop, "BOTTOMLEFT", -SPACING, 0)
-				end
-				portrait.backdrop:SetFrameLevel(portrait:GetFrameLevel() - 1)
-				
-				portrait:Point('BOTTOMLEFT', portrait.backdrop, 'BOTTOMLEFT', BORDER, BORDER)		
-				portrait:Point('TOPRIGHT', portrait.backdrop, 'TOPRIGHT', -BORDER, -BORDER)
-				
-				self.Portrait = portrait
-			end
+			health.bg:ClearAllPoints()
+			health.bg:Point('BOTTOMLEFT', health:GetStatusBarTexture(), 'BOTTOMRIGHT')
+			health.bg:Point('TOPRIGHT', health)
+			health.bg:SetDrawLayer("OVERLAY", 7)
+			health.bg:SetParent(overlay)
 		end
 		
 		--Anchor aggro glow to the healthbar if powertheme is on
 		if POWERTHEME == true then
-			if C["unitframes"].charportrait == true and not C["unitframes"].charportraithealth == true then
-				self.shadow:Point("BOTTOMLEFT", self.Portrait.backdrop, "BOTTOMLEFT", -4, -4)
-			else
-				self.shadow:Point("BOTTOMLEFT", health, "BOTTOMLEFT", -4, -6)
-			end
+			self.shadow:Point("BOTTOMLEFT", health, "BOTTOMLEFT", -4, -6)
 			self.shadow:Point("BOTTOMRIGHT", health, "BOTTOMRIGHT", 4, -6)
 		end				
 				
@@ -723,10 +694,8 @@ local function Shared(self, unit)
 		local CASTBAR_WIDTH = C["unitframes"].casttargetwidth*E.ResScale
 		local PORTRAIT_WIDTH = 45*E.ResScale
 	
-		if C["unitframes"].charportraithealth == true or C["unitframes"].charportrait == false then
+		if C["unitframes"].charportrait == true then
 			PORTRAIT_WIDTH = 0
-		elseif C["unitframes"].charportrait == true then
-			CLASSBAR_WIDTH = math.ceil(((C["unitframes"].playtarwidth - (2*2)) - 45)*E.ResScale)
 		end
 
 		--Health Bar
@@ -765,42 +734,20 @@ local function Shared(self, unit)
 		
 		--Portrait
 		if C["unitframes"].charportrait == true then
-			if C["unitframes"].charportraithealth == true then
-				local portrait = CreateFrame("PlayerModel", nil, health)
-				portrait:SetFrameLevel(health:GetFrameLevel() + 1)
-				portrait:SetAllPoints(health)
-				portrait.PostUpdate = function(self) self:SetAlpha(0) self:SetAlpha(0.35) end		
-				self.Portrait = portrait
+			local portrait = CreateFrame("PlayerModel", nil, health)
+			portrait:SetFrameLevel(health:GetFrameLevel() + 1)
+			portrait:SetAllPoints(health)
+			portrait.PostUpdate = function(self) self:SetAlpha(0) self:SetAlpha(0.35) end		
+			self.Portrait = portrait
 				
-				local overlay = CreateFrame("Frame", nil, self)
-				overlay:SetFrameLevel(self:GetFrameLevel() - 2)
+			local overlay = CreateFrame("Frame", nil, self)
+			overlay:SetFrameLevel(self:GetFrameLevel() - 2)
 				
-				health.bg:ClearAllPoints()
-				health.bg:Point('BOTTOMLEFT', health:GetStatusBarTexture(), 'BOTTOMRIGHT')
-				health.bg:Point('TOPRIGHT', health)
-				health.bg:SetDrawLayer("OVERLAY", 7)
-				health.bg:SetParent(overlay)
-			else
-				--Reposition Health
-				health:Point("TOPRIGHT", -(PORTRAIT_WIDTH+BORDER), -BORDER)
-				
-				local portrait = CreateFrame("PlayerModel", nil, self)
-				portrait:SetFrameStrata("LOW")
-				portrait.backdrop = CreateFrame("Frame", nil, portrait)
-				portrait.backdrop:SetTemplate("Default")
-				portrait.backdrop:SetPoint("TOPRIGHT", self, "TOPRIGHT")
-				if POWERTHEME == true then
-					portrait.backdrop:Point("BOTTOMLEFT", health.backdrop, "BOTTOMRIGHT", SPACING, 0)
-				else
-					portrait.backdrop:Point("BOTTOMLEFT", power.backdrop, "BOTTOMRIGHT", SPACING, 0)
-				end				
-				portrait.backdrop:SetFrameLevel(portrait:GetFrameLevel() - 1)
-				
-				portrait:Point('BOTTOMLEFT', portrait.backdrop, 'BOTTOMLEFT', BORDER, BORDER)		
-				portrait:Point('TOPRIGHT', portrait.backdrop, 'TOPRIGHT', -BORDER, -BORDER)
-				
-				self.Portrait = portrait
-			end
+			health.bg:ClearAllPoints()
+			health.bg:Point('BOTTOMLEFT', health:GetStatusBarTexture(), 'BOTTOMRIGHT')
+			health.bg:Point('TOPRIGHT', health)
+			health.bg:SetDrawLayer("OVERLAY", 7)
+			health.bg:SetParent(overlay)
 		end
 				
 		--Auras
