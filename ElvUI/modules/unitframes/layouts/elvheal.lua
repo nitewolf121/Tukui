@@ -895,7 +895,14 @@ local function Shared(self, unit)
 		end)
 		combo:HookScript("OnHide", function()
 			health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+PORTRAIT_WIDTH), -BORDER)
-		end)			
+		end)
+		combo:SetScript("OnUpdate", function()
+			if C["general"].classcolortheme == true and combo:IsShown() then
+				combo.backdrop:SetBackdropBorderColor(self.Health:GetStatusBarColor())
+			elseif C["general"].classcolortheme ~= true then
+				combo:SetScript("OnUpdate", nil)
+			end			
+		end)		
 		combo:Hide()
 		
 		combo.Override = E.ComboDisplay
