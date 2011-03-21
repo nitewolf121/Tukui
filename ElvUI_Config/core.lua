@@ -548,7 +548,7 @@ function ElvuiConfig.GenerateOptionsInternal()
 								type = "toggle",
 								order = 8,
 								name = L["Character Portrait"],
-								desc = L["Display character portrait on the healthbar available frames"],	
+								desc = L["Display character portrait on healthbar of available frames"],	
 								disabled = function() return (not db.unitframes.enable) end,								
 							},
 							classcolor = {
