@@ -247,22 +247,24 @@ local font = C["media"].font
 
 --Bottom panel
 local botpanel = CreateFrame("Frame", "ElvBottomPanel", UIParent)
-botpanel:CreatePanel("Default", UIParent:GetWidth() + (E.mult * 2), 14, "BOTTOMLEFT", UIParent, "BOTTOMLEFT", -E.mult, -E.mult)
+botpanel:CreatePanel("Default", UIParent:GetWidth() + (E.mult * 2), 16, "BOTTOMLEFT", UIParent, "BOTTOMLEFT", -E.mult, -E.mult)
 botpanel:SetPoint("BOTTOMRIGHT", UIParent, "TOPRIGHT", E.mult, -E.mult)
+botpanel:SetTemplate("Transparent")
 botpanel:CreateShadow("Default")
 botpanel:SetFrameLevel(0)
-botpanel:SetAlpha(0)
+botpanel:SetAlpha(1)
 
 
 --Top Panels
 -------------
 --toppannel
 local toppanel = CreateFrame("Frame", "ElvTopPanel", UIParent)
-toppanel:CreatePanel("Default", UIParent:GetWidth() + (E.mult * 2), 14, "TOPLEFT", UIParent, "TOPLEFT", -E.mult, E.mult)
+toppanel:CreatePanel("Default", UIParent:GetWidth() + (E.mult * 2), 16, "TOPLEFT", UIParent, "TOPLEFT", -E.mult, E.mult)
 toppanel:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", E.mult, E.mult)
+toppanel:SetTemplate("Transparent")
 toppanel:CreateShadow("Default")
 toppanel:SetFrameLevel(0)
-toppanel:SetAlpha(0)
+toppanel:SetAlpha(1)
 
 --loc panels
 --topbox is dummy panel for anchoring
