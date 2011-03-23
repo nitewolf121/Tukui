@@ -295,18 +295,13 @@ rycordpanel:SetFrameLevel(2)
 
 local ldatapanel = CreateFrame("Frame", "ElvLeftDataPanel", UIParent)
 ldatapanel:SetTemplate("Default", true)
-ldatapanel:CreatePanel("Default", E.Scale(100), E.Scale(21), "RIGHT", lxcordpanel, "LEFT", -E.Scale(4), 0)
 ldatapanel:CreateShadow("Default")
 ldatapanel:SetFrameLevel(2)
 
 local rdatapanel = CreateFrame("Frame", "ElvRightDataPanel", UIParent)
 rdatapanel:SetTemplate("Default", true)
-rdatapanel:CreatePanel("Default", E.Scale(100), E.Scale(21), "LEFT", rycordpanel, "RIGHT", E.Scale(4), 0)
 rdatapanel:CreateShadow("Default")
 rdatapanel:SetFrameLevel(2)
-
-topbox:SetPoint("TOPLEFT", ElvXPanel, "TOPLEFT", E.Scale(-2), E.Scale(2))
-topbox:SetPoint("BOTTOMRIGHT", ElvYPanel, "BOTTOMRIGHT", E.Scale(2), E.Scale(-2))
 
 
 
@@ -318,19 +313,67 @@ locFS:SetFont(font, C["datatext"].fontsize, "THINOUTLINE")
 locFS:SetShadowOffset(E.mult, -E.mult)
 locFS:SetShadowColor(0, 0, 0, 0.4)
 
-----X cord
+
 local xFS = lxcordpanel:CreateFontString(nil, "OVERLAY")
 xFS:SetFont(font, C["datatext"].fontsize, "THINOUTLINE")
 xFS:SetTextColor(unpack(C["media"].valuecolor))
 xFS:SetShadowOffset(E.mult, -E.mult)
 xFS:SetShadowColor(0, 0, 0, 0.4)
+xFS:SetPoint("CENTER", lxcordpanel, "CENTER", 1, 0)
 
-----Y cord
 local yFS = rycordpanel:CreateFontString(nil, "OVERLAY")
 yFS:SetFont(font, C["datatext"].fontsize, "THINOUTLINE")
 yFS:SetTextColor(unpack(C["media"].valuecolor))
 yFS:SetShadowOffset(E.mult, -E.mult)
 yFS:SetShadowColor(0, 0, 0, 0.4)
+yFS:SetPoint("CENTER", rycordpanel, "CENTER", 1, 0)
+
+local ela,go = 0, false
+
+local cUpdate = function(self,t)
+	ela = ela - t
+	if ela > 0 then return end
+	local x,y = GetPlayerMapPosition("player")
+	local xt,yt
+	x = math.floor(100*x)
+	y = math.floor(100*y)
+	if x ==0 and y == 0 then
+		xFS:SetText("")
+		yFS:SetText("")
+		ElvXPanel:SetAlpha(0)
+		ElvYPanel:SetAlpha(0)
+		ElvTopBox:SetPoint("TOPLEFT", ElvLocPanel, "TOPLEFT", E.Scale(-104), 0)
+		ElvTopBox:SetPoint("BOTTOMRIGHT", ElvLocPanel, "BOTTOMRIGHT", E.Scale(104), 0)
+		ElvLeftDataPanel:SetPoint("TOPLEFT", ElvTopBox, "TOPLEFT", 0, 0)
+		ElvLeftDataPanel:SetPoint("BOTTOMRIGHT", ElvLocPanel, "BOTTOMLEFT", -E.Scale(4), 0)
+		ElvRightDataPanel:SetPoint("TOPRIGHT", ElvTopBox, "TOPRIGHT", 0, 0)
+		ElvRightDataPanel:SetPoint("BOTTOMLEFT", ElvLocPanel, "BOTTOMRIGHT", E.Scale(4), 0)
+	else
+		if x < 10 then
+			xt = "0"..x
+		else
+			xt = x
+		end
+		if y < 10 then
+			yt = "0"..y
+		else
+			yt = y
+		end
+		xFS:SetText(xt)
+		yFS:SetText(yt)
+		ElvXPanel:SetAlpha(1)
+		ElvYPanel:SetAlpha(1)
+		ElvTopBox:SetPoint("TOPLEFT", ElvXPanel, "TOPLEFT", E.Scale(-104), 0)
+		ElvTopBox:SetPoint("BOTTOMRIGHT", ElvYPanel, "BOTTOMRIGHT", E.Scale(104), 0)
+		ElvLeftDataPanel:SetPoint("TOPLEFT", ElvTopBox, "TOPLEFT", 0, 0)
+		ElvLeftDataPanel:SetPoint("BOTTOMRIGHT", ElvXPanel, "BOTTOMLEFT", -E.Scale(4), 0)
+		ElvRightDataPanel:SetPoint("TOPRIGHT", ElvTopBox, "TOPRIGHT", 0, 0)
+		ElvRightDataPanel:SetPoint("BOTTOMLEFT", ElvYPanel, "BOTTOMRIGHT", E.Scale(4), 0)
+	end
+	ela = .2
+end
+
+ElvXPanel:SetScript("OnUpdate",cUpdate)
 
 --Pvp Type Coloring
 local function SetLocColor(frame, pvpT)
@@ -358,18 +401,6 @@ local function OnEvent()
 	locFS:SetPoint("CENTER", locpanel, "CENTER", 1, 0)
 	locFS:SetJustifyH("CENTER")
 end
-local function xUpdate()
-	posX, posY = GetPlayerMapPosition("player");
-	posX = math.floor(100 * posX)
-	xFS:SetText(posX)
-	xFS:SetPoint("CENTER", lxcordpanel, "CENTER", 1, 0)
-end
-local function yUpdate()
-	posX, posY = GetPlayerMapPosition("player");
-	posY = math.floor(100 * posY)
-	yFS:SetText(posY)
-	yFS:SetPoint("CENTER", rycordpanel, "CENTER", 1, 0)
-end
 locpanel:SetScript("OnMouseDown", function()
 	if WorldMapFrame:IsShown() then
 			WorldMapFrame:Hide()
@@ -389,8 +420,6 @@ locpanel:RegisterEvent("PLAYER_ENTERING_WORLD")
 locpanel:RegisterEvent("ZONE_CHANGED_INDOORS")
 locpanel:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 locpanel:SetScript("OnEvent", OnEvent)
-lxcordpanel:SetScript("OnUpdate", xUpdate)
-rycordpanel:SetScript("OnUpdate", yUpdate)
 	
 TukuiInfoLeft = ElvuiInfoLeft -- conversion
 TukuiInfoRight = ElvuiInfoRight -- conversion	
