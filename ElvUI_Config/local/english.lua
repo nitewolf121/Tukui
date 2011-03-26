@@ -282,6 +282,7 @@ L["Data Texts"] = true
 	L["Text Positions"] = true
 	L["BG Text"] = true
 		L["Display special datatexts when inside a battleground"] = true
+	L["Class Color"] = true
 		L["Font size for datatexts"] = true
 	L["24-Hour Time"] = true
 		L["Display time datatext on a 24 hour time scale"] = true
