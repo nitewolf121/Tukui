@@ -427,6 +427,11 @@ function ElvuiConfig.GenerateOptionsInternal()
 								name = L["Track CC Debuffs"],
 								desc = L["Tracks CC debuffs on nameplates from you or a friendly player"],										
 							},
+							overlap = { --GetBuildInfo() <-- Reminder to remove this for 4.1
+								type = "toggle",
+								order = 6,
+								name = L["Allow Overlap"],						
+							},
 							Colors = {
 								type = "group",
 								order = 6,
@@ -1456,8 +1461,14 @@ function ElvuiConfig.GenerateOptionsInternal()
 						desc = L["Display local time instead of server time"],	
 						disabled = function() return db.datatext.wowtime == 0 end,					
 					},
-					DataGroup = {
+					classcolor = {
 						order = 6,
+						type = "toggle",
+						name = L["Class Color"],
+						desc = L["Color the datatext values based on your class"],
+					},
+					DataGroup = {
+						order = 7,
 						type = "group",
 						name = L["Text Positions"],
 						guiInline = true,

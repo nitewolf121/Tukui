@@ -83,7 +83,8 @@ L["Nameplates"] = true
 		L["This is displayed when you don't have threat as a tank, if you do have threat it is displayed as a DPS/Healer"] = true
 	L["Transition Color"] = true
 		L["This color is displayed when gaining/losing threat"] = true
-
+	L["Allow Overlap"] = true
+	
 --Unitframes
 L["Unit Frames"] = true
 	L["UF_DESC"] = "Adjust settings for unitframes"
@@ -286,6 +287,7 @@ L["Data Texts"] = true
 		L["Display time datatext on a 24 hour time scale"] = true
 	L["Local Time"] = true
 		L["Display local time instead of server time"] = true
+		L["Color the datatext values based on your class"] = true
 	L["Stat #1"] = true
 		L["Display stat based on your role (Avoidance-Tank, AP-Melee, SP/HP-Caster)"] = true
 	L["Durability"] = true

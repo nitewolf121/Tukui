@@ -9,5 +9,6 @@ LSM:Register("border", "ElvUI GlowBorder", [[Interface\AddOns\ElvUI\media\textur
 LSM:Register("font","ElvUI Font", [[Interface\AddOns\ElvUI\media\fonts\PT_Sans_Narrow.ttf]])
 LSM:Register("font", "NiteWolfUI Font", [[Interface\Addons\ElvUI\media\fonts\expressway.ttf]])
 LSM:Register("font","ElvUI Combat", [[Interface\AddOns\ElvUI\media\fonts\Action_Man.ttf]])
+LSM:Register("font","ElvUI Alt-Combat", [[Interface\AddOns\ElvUI\media\fonts\DieDieDie.ttf]])
 LSM:Register("sound","ElvUI Warning", [[Interface\AddOns\ElvUI\media\sounds\warning.mp3]])
 LSM:Register("sound","ElvUI Whisper", [[Interface\AddOns\ElvUI\media\sounds\whisper.mp3]])

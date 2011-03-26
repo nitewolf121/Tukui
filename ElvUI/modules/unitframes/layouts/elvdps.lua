@@ -733,6 +733,7 @@ local function Shared(self, unit)
 		self:FontString("Name", FONT, FONTSIZE, "THINOUTLINE")
 		self.Name:SetJustifyH("LEFT")
 		self.Name.frequentUpdates = 0.2
+		self.Name:SetShadowColor(0, 0, 0, 0)
 		self:Tag(self.Name, '[Elvui:getnamecolor][Elvui:namelong] [Elvui:diffcolor][level] [shortclassification]')
 		
 		--Portrait
@@ -960,6 +961,7 @@ local function Shared(self, unit)
 		--Name
 		self:FontString("Name", FONT, FONTSIZE, "THINOUTLINE")
 		self.Name:Point("CENTER", health, "CENTER", 0, 2)
+		self.Name:SetShadowColor(0, 0, 0, 0)
 		self.Name.frequentUpdates = 0.5
 		self:Tag(self.Name, '[Elvui:getnamecolor][Elvui:namemedium]')		
 		
@@ -1124,6 +1126,7 @@ local function Shared(self, unit)
 		--Name
 		self:FontString("Name", FONT, FONTSIZE, "THINOUTLINE")
 		self.Name:Point("LEFT", health, "LEFT", 4, 0)
+		self.Name:SetShadowColor(0, 0, 0, 0)
 		self.Name.frequentUpdates = 0.5
 		self:Tag(self.Name, '[Elvui:getnamecolor][Elvui:namemedium]')
 				
@@ -1190,6 +1193,7 @@ local function Shared(self, unit)
 		--Name
 		self:FontString("Name", FONT, FONTSIZE, "THINOUTLINE")
 		self.Name:Point("CENTER", health, "CENTER", 0, 2)
+		self.Name:SetShadowColor(0, 0, 0, 0)
 		self.Name.frequentUpdates = 0.5
 		self:Tag(self.Name, '[Elvui:getnamecolor][Elvui:namemedium]')			
 	end
