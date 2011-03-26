@@ -2,8 +2,8 @@
 
 DB["media"] = {
 	-- fonts
-	["font"] = "ElvUI Font", -- general font of Elvui
-	["uffont"] = "ElvUI Font", -- general font of unitframes
+	["font"] = "NiteWolfUI Font", -- general font of Elvui
+	["uffont"] = "NiteWolfUI Font", -- general font of unitframes
 	["dmgfont"] = "ElvUI Combat", -- general font of dmg / sct
 		
 	-- textures

@@ -222,7 +222,7 @@ function ElvuiConfig.GenerateOptionsInternal()
 								name = L["Combat Text Font"],
 								desc = L["The font that combat text will use. WARNING: This requires a game restart after changing this option."],
 								values = AceGUIWidgetLSMlists.font,						
-							},					
+							},	
 						},
 					},
 					Textures = {
