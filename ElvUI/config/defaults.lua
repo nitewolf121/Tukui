@@ -195,7 +195,7 @@ DB["nameplate"] = {
 }
 
 DB["datatext"] = {
-	["stat1"] = 19,						   -- Stat Based on your Role (Avoidance-Tank, AP-Melee, SP/HP-Caster)
+	["stat1"] = 9,						   -- Stat Based on your Role (Avoidance-Tank, AP-Melee, SP/HP-Caster)
 	["dur"] = 3,                           -- show your equipment durability on panels.
 	["stat2"] = 10, 						   -- Stat Based on your Role (Armor-Tank, Crit-Melee, Crit-Caster)
 	["system"] = 4,                        -- show fps and ms on panels, and total addon memory in tooltip
