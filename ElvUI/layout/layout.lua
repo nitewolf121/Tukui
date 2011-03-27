@@ -5,7 +5,7 @@ E.buttonsize = E.Scale(C["actionbar"].buttonsize)
 E.buttonspacing = E.Scale(C["actionbar"].buttonspacing)
 E.petbuttonsize = E.Scale(C["actionbar"].petbuttonsize)
 E.buttonspacing = E.Scale(C["actionbar"].buttonspacing)
-E.minimapsize = E.Scale(180)
+E.minimapsize = E.Scale(178)
 
 --BOTTOM DUMMY FRAME DOES NOTHING BUT HOLDS FRAME POSITIONS
 local bottompanel = CreateFrame("Frame", "ElvuiBottomPanel", UIParent)
@@ -276,7 +276,7 @@ topbox:SetAlpha(0)
 
 local locpanel = CreateFrame("Frame", "ElvLocPanel", UIParent)
 locpanel:SetTemplate("Default", true)
-locpanel:CreatePanel("Default", 19, 21, "CENTER", toppanel, "BOTTOM", 0, -2)
+locpanel:CreatePanel("Default", 19, 21, "TOP", UIParent, "TOP", 0, -5)
 locpanel:CreateShadow("Default")
 locpanel:SetFrameLevel(2)
 locpanel:EnableMouse(true)
