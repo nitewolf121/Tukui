@@ -637,7 +637,7 @@ function ElvuiConfig.GenerateOptionsInternal()
 							mini_powerbar = {
 								type = "toggle",
 								order = 18,
-								name = L["Mini-Powerbar Theme"],
+								name = L["Mini-Bar Theme"],
 								desc = L["Style the unitframes with a smaller powerbar and classbar"],							
 							},
 							arena = {
