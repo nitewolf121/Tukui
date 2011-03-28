@@ -75,6 +75,7 @@ splitright:CreateShadow("Default")
 if C["actionbar"].enable == true then
 	local barbgr = CreateFrame("Frame", "ElvuiActionBarBackgroundRight", ElvuiActionBarBackground)
 	barbgr:CreatePanel("Default", 1, (E.buttonsize * 12) + (E.buttonspacing * 13), "RIGHT", UIParent, "RIGHT", E.Scale(-4), E.Scale(-8))
+	barbgr:SetFrameLevel(2)
 	barbgr:Hide()
 
 	local petbg = CreateFrame("Frame", "ElvuiPetActionBarBackground", UIParent)
