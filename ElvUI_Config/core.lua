@@ -1473,8 +1473,14 @@ function ElvuiConfig.GenerateOptionsInternal()
 						name = L["Class Color"],
 						desc = L["Color the datatext values based on your class"],
 					},
-					DataGroup = {
+					masteryspell = {
 						order = 7,
+						type = "toggle",
+						name = L["Enable Mastery Spell"],
+						desc = L["Enable Mastery Spell for Mastery Datatext"],
+					},
+					DataGroup = {
+						order = 8,
 						type = "group",
 						name = L["Text Positions"],
 						guiInline = true,
@@ -1568,6 +1574,27 @@ function ElvuiConfig.GenerateOptionsInternal()
 								type = "range",
 								name = L["Talent Spec"],
 								desc = L["Display current spec"]..L["DATATEXT_POS"],
+								min = 0, max = 10, step = 1,								
+							},
+							hit = {
+								order = 14,
+								type = "range",
+								name = L["Hit Rating"],
+								desc = L["Display Hit Rating"]..L["DATATEXT_POS"],
+								min = 0, max = 10, step = 1,								
+							},
+							haste = {
+								order = 15,
+								type = "range",
+								name = L["Haste"],
+								desc = L["Display Haste Rating"]..L["DATATEXT_POS"],
+								min = 0, max = 10, step = 1,								
+							},
+							mastery = {
+								order = 16,
+								type = "range",
+								name = L["Mastery"],
+								desc = L["Display Mastery Rating"]..L["DATATEXT_POS"],
 								min = 0, max = 10, step = 1,								
 							},
 						},

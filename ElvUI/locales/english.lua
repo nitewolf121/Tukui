@@ -74,6 +74,7 @@ L.datatext_demolishersdestroyed = "Demolishers Destroyed:"
 L.datatext_gatesdestroyed = "Gates Destroyed:"
 L.datatext_totalmemusage = "Total Memory Usage:"
 L.datatext_control = "Controlled by:"
+L.datatext_playerhit = "Hit: "
 
 L.Slots = {
 	[1] = {1, "Head", 1000},
