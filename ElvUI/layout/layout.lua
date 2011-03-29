@@ -88,8 +88,10 @@ if C["actionbar"].enable == true then
 	local ltpetbg = CreateFrame("Frame", "ElvuiLineToPetActionBarBackground", petbg)
 	if C["actionbar"].bottompetbar ~= true then
 		ltpetbg:CreatePanel("Default", 30, 265, "LEFT", petbg, "RIGHT", 0, 0)
+		ltpetbg:SetTemplate("Transparent")
 	else
 		ltpetbg:CreatePanel("Default", 265, 30, "BOTTOM", petbg, "TOP", 0, 0)
+		ltpetbg:SetTemplate("Transparent")
 	end
 	
 	ltpetbg:SetScript("OnShow", function(self)
