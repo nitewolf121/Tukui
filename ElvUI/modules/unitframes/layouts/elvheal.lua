@@ -94,6 +94,8 @@ local function Shared(self, unit)
 
 		if C["unitframes"].charportrait == true then
 			PORTRAIT_WIDTH = 0
+		else
+			PORTRAIT_WIDTH = 0
 		end
 	
 		--Health Bar
