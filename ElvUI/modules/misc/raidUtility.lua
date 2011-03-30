@@ -9,7 +9,7 @@ local panel_height = ((E.Scale(5)*4) + (E.Scale(20)*4))
 
 --Create main frame
 local RaidUtilityPanel = CreateFrame("Frame", "RaidUtilityPanel", UIParent)
-RaidUtilityPanel:CreatePanel("Transparent", E.Scale(230), panel_height, "TOP", UIParent, "TOP", -400, 1)
+RaidUtilityPanel:CreatePanel("Transparent", E.Scale(230), panel_height, "TOP", UIParent, "TOP", -400, -5)
 RaidUtilityPanel:SetFrameLevel(3)
 RaidUtilityPanel.toggled = false
 
@@ -68,7 +68,7 @@ local function CreateButton(name, parent, template, width, height, point, relati
 end
 
 --Show Button
-CreateButton("ShowButton", UIParent, "UIMenuButtonStretchTemplate, SecureHandlerClickTemplate", 80, 18, "TOP", UIParent, "TOP", -400, 2, L.core_raidutil, nil)
+CreateButton("ShowButton", UIParent, "UIMenuButtonStretchTemplate, SecureHandlerClickTemplate", 80, 18, "TOP", UIParent, "TOP", -400, -5, L.core_raidutil, nil)
 ShowButton:SetFrameRef("RaidUtilityPanel", RaidUtilityPanel)
 ShowButton:SetAttribute("_onclick", [=[self:Hide(); self:GetFrameRef("RaidUtilityPanel"):Show();]=])
 ShowButton:SetScript("OnMouseUp", function(self) RaidUtilityPanel.toggled = true end)
