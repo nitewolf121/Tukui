@@ -12,7 +12,7 @@ E.minimapsize = E.Scale(178)
 --BOTTOM PANEL
 
 local f = CreateFrame("Frame", "ElvuiBottomPanel", UIParent)
-f:SetHeight(23)
+f:SetHeight(16)
 f:SetWidth(UIParent:GetWidth() + (E.mult * 2))
 f:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", -E.mult, -E.mult)
 f:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", E.mult, -E.mult)
@@ -27,7 +27,7 @@ end
 --TOP PANEL
 if C["general"].upperpanel == true then
 	local f = CreateFrame("Frame", "ElvuiTopPanel", UIParent)
-	f:SetHeight(23)
+	f:SetHeight(16)
 	f:SetWidth(UIParent:GetWidth() + (E.mult * 2))
 	f:SetPoint("TOPLEFT", UIParent, "TOPLEFT", -E.mult, E.mult)
 	f:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", E.mult, E.mult)
@@ -37,7 +37,7 @@ if C["general"].upperpanel == true then
 	f:CreateShadow("Default")
 	
 	local f = CreateFrame("Frame", "ElvuiLoc", ElvuiTopPanel)
-	f:SetHeight(23)
+	f:SetHeight(21)
 	f:SetWidth(E.minimapsize)
 	f:SetFrameLevel(2)
 	f:SetTemplate("Default", true)
@@ -45,7 +45,7 @@ if C["general"].upperpanel == true then
 	f:Point("CENTER", ElvuiTopPanel, "BOTTOM")
 	
 	local f = CreateFrame("Frame", "ElvuiLocX", ElvuiLoc)
-	f:SetHeight(23)
+	f:SetHeight(21)
 	f:SetWidth(E.minimapsize / 6)
 	f:SetFrameLevel(2)
 	f:SetTemplate("Default", true)
@@ -53,7 +53,7 @@ if C["general"].upperpanel == true then
 	f:Point("RIGHT", ElvuiLoc, "LEFT", -2, 0)	
 	
 	local f = CreateFrame("Frame", "ElvuiLocY", ElvuiLoc)
-	f:SetHeight(23)
+	f:SetHeight(21)
 	f:SetWidth(E.minimapsize / 6)
 	f:SetFrameLevel(2)
 	f:SetTemplate("Default", true)
@@ -61,7 +61,7 @@ if C["general"].upperpanel == true then
 	f:Point("LEFT", ElvuiLoc, "RIGHT", 2, 0)	
 
 	local f = CreateFrame("Frame", "ElvuiStat9Block", ElvuiTopPanel)
-	f:SetHeight(23)
+	f:SetHeight(21)
 	f:SetWidth(E.minimapsize / 1.5)
 	f:SetFrameLevel(2)
 	f:SetTemplate("Default", true)
@@ -69,7 +69,7 @@ if C["general"].upperpanel == true then
 	f:Point("RIGHT", ElvuiLocX, "LEFT", -6, 0)			
 	
 	local f = CreateFrame("Frame", "ElvuiStat10Block", ElvuiTopPanel)
-	f:SetHeight(23)
+	f:SetHeight(21)
 	f:SetWidth(E.minimapsize / 1.5)
 	f:SetFrameLevel(2)
 	f:SetTemplate("Default", true)
@@ -114,7 +114,6 @@ barbg:SetFrameStrata("BACKGROUND")
 barbg:SetHeight(E.buttonsize + (E.buttonspacing * 2))
 barbg:SetFrameLevel(2)
 barbg:CreateShadow("Default")
-barbg:SetFrameLevel(2)
 
 if C["actionbar"].enable ~= true then
 	barbg:SetAlpha(0)
@@ -141,7 +140,6 @@ if C["actionbar"].enable == true then
 	barbgr:CreatePanel("Default", 1, (E.buttonsize * 12) + (E.buttonspacing * 13), "RIGHT", UIParent, "RIGHT", E.Scale(-4), E.Scale(-8))
 	barbgr:SetFrameLevel(2)
 	barbgr:Hide()
-	barbgr:SetFrameLevel(2)
 	
 	local petbg = CreateFrame("Frame", "ElvuiPetActionBarBackground", UIParent)
 	if C["actionbar"].bottompetbar ~= true then
@@ -182,25 +180,25 @@ end
 local chatlbgdummy = CreateFrame("Frame", "ChatLBackground", UIParent)
 chatlbgdummy:SetWidth(C["chat"].chatwidth)
 chatlbgdummy:SetHeight(C["chat"].chatheight+6)
-chatlbgdummy:SetPoint("BOTTOMLEFT", ElvuiBottomPanel, "TOPLEFT", E.Scale(4),  E.Scale(7))
+chatlbgdummy:SetPoint("BOTTOMLEFT", ElvuiBottomPanel, "TOPLEFT", E.Scale(4),  E.Scale(14))
 
 -- CHAT BACKGROUND LEFT (DOESN'T MOVE THIS IS WHAT WE ATTACH FRAMES TO)
 local chatlbgdummy2 = CreateFrame("Frame", "ChatLBackground2", UIParent)
 chatlbgdummy2:SetWidth(C["chat"].chatwidth)
 chatlbgdummy2:SetHeight(C["chat"].chatheight+6)
-chatlbgdummy2:SetPoint("BOTTOMLEFT", ElvuiBottomPanel, "TOPLEFT", E.Scale(4),  E.Scale(7))
+chatlbgdummy2:SetPoint("BOTTOMLEFT", ElvuiBottomPanel, "TOPLEFT", E.Scale(4),  E.Scale(14))
 
 -- CHAT BACKGROUND RIGHT (MOVES)
 local chatrbgdummy = CreateFrame("Frame", "ChatRBackground", UIParent)
 chatrbgdummy:SetWidth(C["chat"].chatwidth)
 chatrbgdummy:SetHeight(C["chat"].chatheight+6)
-chatrbgdummy:SetPoint("BOTTOMRIGHT", ElvuiBottomPanel, "TOPRIGHT", E.Scale(-4),  E.Scale(7))
+chatrbgdummy:SetPoint("BOTTOMRIGHT", ElvuiBottomPanel, "TOPRIGHT", E.Scale(-4),  E.Scale(14))
 
 -- CHAT BACKGROUND RIGHT (DOESN'T MOVE THIS IS WHAT WE ATTACH FRAMES TO)
 local chatrbgdummy2 = CreateFrame("Frame", "ChatRBackground2", UIParent)
 chatrbgdummy2:SetWidth(C["chat"].chatwidth)
 chatrbgdummy2:SetHeight(C["chat"].chatheight+6)
-chatrbgdummy2:SetPoint("BOTTOMRIGHT", ElvuiBottomPanel, "TOPRIGHT", E.Scale(-4),  E.Scale(7))
+chatrbgdummy2:SetPoint("BOTTOMRIGHT", ElvuiBottomPanel, "TOPRIGHT", E.Scale(-4),  E.Scale(14))
 
 E.ChatRightShown = true
 if C["chat"].showbackdrop == true then
@@ -303,188 +301,6 @@ inforight:SetPoint("BOTTOMRIGHT", chatrbgdummy2, "BOTTOMRIGHT", E.Scale(-17), E.
 	inforightRbutton.text:SetPoint("CENTER")
 	inforightRbutton.text:SetTextColor(unpack(C["media"].valuecolor))
 	
--- Top, Bottom and Coord Panels and datatext for coordinates
-	
-local UI
-if ElvUI then UI=ElvUI else UI=Tukui end
-local E, C, L, DB = unpack(UI)
-local font = C["media"].font
-
---Bottom panel
-local botpanel = CreateFrame("Frame", "ElvBottomPanel", UIParent)
-botpanel:CreatePanel("Default", UIParent:GetWidth() + (E.mult * 2), 16, "BOTTOMLEFT", UIParent, "BOTTOMLEFT", -E.mult, -E.mult)
-botpanel:SetPoint("BOTTOMRIGHT", UIParent, "TOPRIGHT", E.mult, -E.mult)
-botpanel:SetTemplate("Transparent")
-botpanel:CreateShadow("Default")
-botpanel:SetFrameLevel(0)
-botpanel:SetAlpha(1)
-
-
---Top Panels
--------------
---toppannel
-local toppanel = CreateFrame("Frame", "ElvTopPanel", UIParent)
-toppanel:CreatePanel("Default", UIParent:GetWidth() + (E.mult * 2), 16, "TOPLEFT", UIParent, "TOPLEFT", -E.mult, E.mult)
-toppanel:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", E.mult, E.mult)
-toppanel:SetTemplate("Transparent")
-toppanel:CreateShadow("Default")
-toppanel:SetFrameLevel(0)
-toppanel:SetAlpha(1)
-
---loc panels
---topbox is dummy panel for anchoring
-local topbox = CreateFrame("Frame", "ElvTopBox", toppanel)
-topbox:SetTemplate("Default", true)
-topbox:CreateShadow("Default")
-topbox:SetFrameLevel(0)
-topbox:SetAlpha(0)
-
-local locpanel = CreateFrame("Frame", "ElvLocPanel", UIParent)
-locpanel:SetTemplate("Default", true)
-locpanel:CreatePanel("Default", 19, 21, "TOP", UIParent, "TOP", 0, -5)
-locpanel:CreateShadow("Default")
-locpanel:SetFrameLevel(2)
-locpanel:EnableMouse(true)
-
-local lxcordpanel = CreateFrame("Frame", "ElvXPanel", UIParent)
-lxcordpanel:SetTemplate("Default", true)
-lxcordpanel:CreatePanel("Default", 31, 21, "RIGHT", locpanel, "LEFT", -4, 0)
-lxcordpanel:CreateShadow("Default")
-lxcordpanel:SetFrameLevel(2)
-
-local rycordpanel = CreateFrame("Frame", "ElvYPanel", UIParent)
-rycordpanel:SetTemplate("Default", true)
-rycordpanel:CreatePanel("Default", 31, 21, "LEFT", locpanel, "RIGHT", 4, 0)
-rycordpanel:CreateShadow("Default")
-rycordpanel:SetFrameLevel(2)
-
-local ldatapanel = CreateFrame("Frame", "ElvLeftDataPanel", UIParent)
-ldatapanel:SetTemplate("Default", true)
-ldatapanel:CreateShadow("Default")
-ldatapanel:SetFrameLevel(2)
-
-local rdatapanel = CreateFrame("Frame", "ElvRightDataPanel", UIParent)
-rdatapanel:SetTemplate("Default", true)
-rdatapanel:CreateShadow("Default")
-rdatapanel:SetFrameLevel(2)
-
-
-
-
---Font Strings
-----Zone
-local locFS = locpanel:CreateFontString(nil, "OVERLAY")
-locFS:SetFont(font, C["datatext"].fontsize, "THINOUTLINE")
-locFS:SetShadowOffset(E.mult, -E.mult)
-locFS:SetShadowColor(0, 0, 0, 0.4)
-
-
-local xFS = lxcordpanel:CreateFontString(nil, "OVERLAY")
-xFS:SetFont(font, C["datatext"].fontsize, "THINOUTLINE")
-xFS:SetTextColor(unpack(C["media"].valuecolor))
-xFS:SetShadowOffset(E.mult, -E.mult)
-xFS:SetShadowColor(0, 0, 0, 0.4)
-xFS:SetPoint("CENTER", lxcordpanel, "CENTER", 1, 0)
-
-local yFS = rycordpanel:CreateFontString(nil, "OVERLAY")
-yFS:SetFont(font, C["datatext"].fontsize, "THINOUTLINE")
-yFS:SetTextColor(unpack(C["media"].valuecolor))
-yFS:SetShadowOffset(E.mult, -E.mult)
-yFS:SetShadowColor(0, 0, 0, 0.4)
-yFS:SetPoint("CENTER", rycordpanel, "CENTER", 1, 0)
-
-local ela,go = 0, false
-
-local cUpdate = function(self,t)
-	ela = ela - t
-	if ela > 0 then return end
-	local x,y = GetPlayerMapPosition("player")
-	local xt,yt
-	x = math.floor(100*x)
-	y = math.floor(100*y)
-	if x ==0 and y == 0 then
-		xFS:SetText("")
-		yFS:SetText("")
-		ElvXPanel:SetAlpha(0)
-		ElvYPanel:SetAlpha(0)
-		ElvTopBox:SetPoint("TOPLEFT", ElvLocPanel, "TOPLEFT", -124, 0)
-		ElvTopBox:SetPoint("BOTTOMRIGHT", ElvLocPanel, "BOTTOMRIGHT", 124, 0)
-		ElvLeftDataPanel:SetPoint("TOPLEFT", ElvTopBox, "TOPLEFT", 0, 0)
-		ElvLeftDataPanel:SetPoint("BOTTOMRIGHT", ElvLocPanel, "BOTTOMLEFT", -4, 0)
-		ElvRightDataPanel:SetPoint("TOPRIGHT", ElvTopBox, "TOPRIGHT", 0, 0)
-		ElvRightDataPanel:SetPoint("BOTTOMLEFT", ElvLocPanel, "BOTTOMRIGHT", 4, 0)
-	else
-		if x < 10 then
-			xt = "0"..x
-		else
-			xt = x
-		end
-		if y < 10 then
-			yt = "0"..y
-		else
-			yt = y
-		end
-		xFS:SetText(xt)
-		yFS:SetText(yt)
-		ElvXPanel:SetAlpha(1)
-		ElvYPanel:SetAlpha(1)
-		ElvTopBox:SetPoint("TOPLEFT", ElvXPanel, "TOPLEFT", -124, 0)
-		ElvTopBox:SetPoint("BOTTOMRIGHT", ElvYPanel, "BOTTOMRIGHT", 124, 0)
-		ElvLeftDataPanel:SetPoint("TOPLEFT", ElvTopBox, "TOPLEFT", 0, 0)
-		ElvLeftDataPanel:SetPoint("BOTTOMRIGHT", ElvXPanel, "BOTTOMLEFT", -4, 0)
-		ElvRightDataPanel:SetPoint("TOPRIGHT", ElvTopBox, "TOPRIGHT", 0, 0)
-		ElvRightDataPanel:SetPoint("BOTTOMLEFT", ElvYPanel, "BOTTOMRIGHT", 4, 0)
-	end
-	ela = .2
-end
-
-ElvXPanel:SetScript("OnUpdate",cUpdate)
-
---Pvp Type Coloring
-local function SetLocColor(frame, pvpT)
-	if (pvpT == "arena" or pvpT == "combat") then
-		frame:SetTextColor(1, 0.5, 0)
-	elseif pvpT == "friendly" then
-		frame:SetTextColor(0, 1, 0)
-	elseif pvpT == "contested" then
-		frame:SetTextColor(1, 1, 0)
-	elseif pvpT == "hostile" then
-		frame:SetTextColor(1, 0, 0)
-	elseif pvpT == "sanctuary" then
-		frame:SetTextColor(0, .9, .9)
-	else
-		frame:SetTextColor(0, 1, 0)
-	end
-end
-
-local function OnEvent()
-	location = GetMinimapZoneText()
-	pvpType = GetZonePVPInfo();
-	locFS:SetText(location)
-	locpanel:SetWidth(locFS:GetStringWidth() + 22)
-	SetLocColor(locFS, pvpType)
-	locFS:SetPoint("CENTER", locpanel, "CENTER", 1, 0)
-	locFS:SetJustifyH("CENTER")
-end
-locpanel:SetScript("OnMouseDown", function()
-	if WorldMapFrame:IsShown() then
-			WorldMapFrame:Hide()
-	else
-			WorldMapFrame:Show()
-	end
-end)
-locpanel:SetScript("OnEnter", function()
-	locFS:SetTextColor(1, 1, 1)
-end)
-locpanel:SetScript("OnLeave", function()
-	pvpType = GetZonePVPInfo();
-	SetLocColor(locFS, pvpType)
-end)
-locpanel:RegisterEvent("ZONE_CHANGED")
-locpanel:RegisterEvent("PLAYER_ENTERING_WORLD")
-locpanel:RegisterEvent("ZONE_CHANGED_INDOORS")
-locpanel:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-locpanel:SetScript("OnEvent", OnEvent)
 	
 TukuiInfoLeft = ElvuiInfoLeft -- conversion
 TukuiInfoRight = ElvuiInfoRight -- conversion	
