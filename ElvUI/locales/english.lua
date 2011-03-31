@@ -25,6 +25,7 @@ L.disband = "Disbanding group."
 L.chat_trade = "Trade"
 
 L.datatext_homelatency = "Home Latency: "
+L.datatext_worldlatency = "World Latency: "
 L.datatext_download = "Download: "
 L.datatext_bandwidth = "Bandwidth: "
 L.datatext_noguild = "No Guild"
