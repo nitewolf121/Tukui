@@ -50,7 +50,7 @@ if C["general"].upperpanel == true then
 	f:SetFrameLevel(2)
 	f:SetTemplate("Default", true)
 	f:CreateShadow("Default")
-	f:Point("RIGHT", ElvuiLoc, "LEFT", -2, 0)	
+	f:Point("RIGHT", ElvuiLoc, "LEFT", -4, 0)	
 	
 	local f = CreateFrame("Frame", "ElvuiLocY", ElvuiLoc)
 	f:SetHeight(21)
@@ -58,7 +58,7 @@ if C["general"].upperpanel == true then
 	f:SetFrameLevel(2)
 	f:SetTemplate("Default", true)
 	f:CreateShadow("Default")
-	f:Point("LEFT", ElvuiLoc, "RIGHT", 2, 0)	
+	f:Point("LEFT", ElvuiLoc, "RIGHT", 4, 0)	
 
 	local f = CreateFrame("Frame", "ElvuiStat9Block", ElvuiTopPanel)
 	f:SetHeight(21)
@@ -66,7 +66,7 @@ if C["general"].upperpanel == true then
 	f:SetFrameLevel(2)
 	f:SetTemplate("Default", true)
 	f:CreateShadow("Default")
-	f:Point("RIGHT", ElvuiLocX, "LEFT", -6, 0)			
+	f:Point("RIGHT", ElvuiLocX, "LEFT", -4, 0)			
 	
 	local f = CreateFrame("Frame", "ElvuiStat10Block", ElvuiTopPanel)
 	f:SetHeight(21)
@@ -74,7 +74,7 @@ if C["general"].upperpanel == true then
 	f:SetFrameLevel(2)
 	f:SetTemplate("Default", true)
 	f:CreateShadow("Default")
-	f:Point("LEFT", ElvuiLocY, "RIGHT", 6, 0)		
+	f:Point("LEFT", ElvuiLocY, "RIGHT", 4, 0)		
 end
 
 local mini = CreateFrame("Frame", "ElvuiMinimap", Minimap)
