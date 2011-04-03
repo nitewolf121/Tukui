@@ -17,5 +17,7 @@
 	<Script file="specswitch.lua"/>
 	<Script file="hit.lua"/>
 	<Script file="haste.lua"/>
-	<Script file="mastery.lua"/>
+	<Script file="mastery.lua"/>	
+	<Script file="crit.lua"/>
+	<Script file="regen.lua"/>
 </Ui>	
