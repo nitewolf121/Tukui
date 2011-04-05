@@ -616,25 +616,25 @@ ChatCombatHider:SetScript("OnEvent", function(self, event)
 				ChatRBackground:Hide()			
 				E.ChatRightShown = false
 				E.ChatRIn = false
-				ElvuiInfoRightRButton.text:SetTextColor(unpack(C["media"].valuecolor))			
+				ElvuiInfoRightRButton.text:SetTextColor(1,1,1)			
 			end
 			if E.ChatLIn ~= false then
 				ChatLBackground:Hide()	
 				E.ChatLIn = false
-				ElvuiInfoLeftLButton.text:SetTextColor(unpack(C["media"].valuecolor))
+				ElvuiInfoLeftLButton.text:SetTextColor(1,1,1)
 			end
 		elseif C["chat"].combathide == "Right" then
 			if E.ChatRIn ~= false then
 				ChatRBackground:Hide()				
 				E.ChatRightShown = false
 				E.ChatRIn = false
-				ElvuiInfoRightRButton.text:SetTextColor(unpack(C["media"].valuecolor))			
+				ElvuiInfoRightRButton.text:SetTextColor(1,1,1)			
 			end		
 		elseif C["chat"].combathide == "Left" then
 			if E.ChatLIn ~= false then
 				ChatLBackground:Hide()
 				E.ChatLIn = false
-				ElvuiInfoLeftLButton.text:SetTextColor(unpack(C["media"].valuecolor))
+				ElvuiInfoLeftLButton.text:SetTextColor(1,1,1)
 			end		
 		end
 	else
@@ -643,25 +643,25 @@ ChatCombatHider:SetScript("OnEvent", function(self, event)
 				ChatRBackground:Show()							
 				E.ChatRightShown = true
 				E.ChatRIn = true
-				ElvuiInfoRightRButton.text:SetTextColor(1,1,1)			
+				ElvuiInfoRightRButton.text:SetTextColor(unpack(C["media"].valuecolor))		
 			end
 			if E.ChatLIn ~= true then
 				ChatLBackground:Show()
 				E.ChatLIn = true
-				ElvuiInfoLeftLButton.text:SetTextColor(1,1,1)
+				ElvuiInfoLeftLButton.text:SetTextColor(unpack(C["media"].valuecolor))
 			end
 		elseif C["chat"].combathide == "Right" then
 			if E.ChatRIn ~= true then
 				ChatRBackground:Show()					
 				E.ChatRightShown = true
 				E.ChatRIn = true
-				ElvuiInfoRightRButton.text:SetTextColor(1,1,1)			
+				ElvuiInfoRightRButton.text:SetTextColor(unpack(C["media"].valuecolor))			
 			end		
 		elseif C["chat"].combathide == "Left" then
 			if E.ChatLIn ~= true then
 				ChatLBackground:Show()
 				E.ChatLIn = true
-				ElvuiInfoLeftLButton.text:SetTextColor(1,1,1)
+				ElvuiInfoLeftLButton.text:SetTextColor(unpack(C["media"].valuecolor))
 			end		
 		end	
 	end

@@ -151,7 +151,7 @@ E.LoadUFFunctions = function(layout)
 			castbar.Icon:Point("BOTTOMRIGHT", button, -2*E.ResScale, 2*E.ResScale)
 			castbar.Icon:SetTexCoord(0.08, 0.92, 0.08, .92)
 			
-			castbar:Width(width - button:GetWidth() - 6)
+			castbar:Width(width - button:GetWidth() - 5)
 		end
 	
 		return castbar

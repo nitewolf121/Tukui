@@ -13,7 +13,7 @@ function E.PP(p, obj)
 	
 	if p == 1 then
 		obj:SetHeight(left:GetHeight())
-		obj:SetPoint("LEFT", left, 15, 0)
+		obj:SetPoint("LEFT", left, 5, 0)
 		obj:SetPoint('TOP', left)
 		obj:SetPoint('BOTTOM', left)
 		if t ~= true then obj:SetParent(left) else obj:GetParent():SetParent(left) end
@@ -26,14 +26,14 @@ function E.PP(p, obj)
 		tinsert(E.LeftDatatexts, obj)
 	elseif p == 3 then
 		obj:SetHeight(left:GetHeight())
-		obj:SetPoint("RIGHT", left, -15, 0)
+		obj:SetPoint("RIGHT", left, -5, 0)
 		obj:SetPoint('TOP', left)
 		obj:SetPoint('BOTTOM', left)
 		if t ~= true then obj:SetParent(left) else obj:GetParent():SetParent(left) end
 		tinsert(E.LeftDatatexts, obj)
 	elseif p == 4 then
 		obj:SetHeight(right:GetHeight())
-		obj:SetPoint("LEFT", right, 15, 0)
+		obj:SetPoint("LEFT", right, 5, 0)
 		obj:SetPoint('TOP', right)
 		obj:SetPoint('BOTTOM', right)
 		if t ~= true then obj:SetParent(right) else obj:GetParent():SetParent(right) end
@@ -44,7 +44,7 @@ function E.PP(p, obj)
 		if t ~= true then obj:SetParent(right) else obj:GetParent():SetParent(right) end
 	elseif p == 6 then
 		obj:SetHeight(right:GetHeight())
-		obj:SetPoint("RIGHT", right, -15, 0)
+		obj:SetPoint("RIGHT", right, -5, 0)
 		obj:SetPoint('TOP', right)
 		obj:SetPoint('BOTTOM', right)
 		if t ~= true then obj:SetParent(right) else obj:GetParent():SetParent(right) end
