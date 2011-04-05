@@ -202,7 +202,6 @@ function GetMinimapShape() return 'SQUARE' end
 -- reskin LFG dropdown
 LFDSearchStatus:SetTemplate("Default")
 
-
 local function GetLocTextColor()
 	local pvpType = GetZonePVPInfo()
 	if pvpType == "arena" then

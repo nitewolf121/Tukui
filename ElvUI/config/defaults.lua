@@ -2,8 +2,8 @@
 
 DB["media"] = {
 	-- fonts
-	["font"] = "NiteWolfUI Font", -- general font of Elvui
-	["uffont"] = "NiteWolfUI Font", -- general font of unitframes
+	["font"] = "ElvUI Font", -- general font of Elvui
+	["uffont"] = "ElvUI Font", -- general font of unitframes
 	["dmgfont"] = "ElvUI Combat", -- general font of dmg / sct
 		
 	-- textures
@@ -36,8 +36,8 @@ DB["general"] = {
 	["resolutionoverride"] = "NONE",		--override lowversion (Low, High)
 	["layoutoverride"] = "NONE",			--ovverride layout (DPS, Healer)
 	["sharpborders"] = true,
-	["upperpanel"] = true,
-	["lowerpanel"] = true,
+	["upperpanel"] = false,
+	["lowerpanel"] = false,
 }
 
 DB["skin"] = {
@@ -55,7 +55,7 @@ DB["skin"] = {
 DB["unitframes"] = {
 	-- general options
 	["enable"] = true,                     -- do i really need to explain this?
-	["fontsize"] = 13,						-- default font height for unitframes
+	["fontsize"] = 12,						-- default font height for unitframes
 	["lowThreshold"] = 20,                 -- global low threshold, for low mana warning.
 	["targetpowerplayeronly"] = true,         -- enable power text on pvp target only
 	["showfocustarget"] = false,           -- show focus's target
@@ -63,6 +63,7 @@ DB["unitframes"] = {
 	["showtotalhpmp"] = false,             -- change the display of info text on player and target with XXXX/Total.
 	["showsmooth"] = true,                 -- enable smooth bar
 	["charportrait"] = true,              -- enable character portrait
+	["charportraithealth"] = false,			-- portrait overlay healthbar
 	["classcolor"] = false,                  -- color unitframes by class
 	["healthcolor"] = DB["media"].bordercolor, --color of the unitframe
 	["healthcolorbyvalue"] = true,			-- color health by current health remaining
@@ -198,16 +199,16 @@ DB["nameplate"] = {
 }
 
 DB["datatext"] = {
-	["stat1"] = 9,						   -- Stat Based on your Role (Avoidance-Tank, AP-Melee, SP/HP-Caster)
-	["dur"] = 3,                           -- show your equipment durability on panels.
-	["stat2"] = 10, 						   -- Stat Based on your Role (Armor-Tank, Crit-Melee, Crit-Caster)
+	["stat1"] = 1,						   -- Stat Based on your Role (Avoidance-Tank, AP-Melee, SP/HP-Caster)
+	["dur"] = 2,                           -- show your equipment durability on panels.
+	["stat2"] = 3, 						   -- Stat Based on your Role (Armor-Tank, Crit-Melee, Crit-Caster)
 	["system"] = 4,                        -- show fps and ms on panels, and total addon memory in tooltip
 	["wowtime"] = 5,                       -- show time on panels
 	["gold"] = 6,                          -- show your current gold on panels
 	["guild"] = 7,                         -- show number on guildmate connected on panels
 	["friends"] = 8,                       -- show number of friends connected.
 	["bags"] = 0,							-- show ammount of bag space available
-	["dps_text"] = 2,						-- show current dps
+	["dps_text"] = 0,						-- show current dps
 	["hps_text"] = 0,						-- show current hps
 	["currency"] = 0,						-- show watched items in backpack
 	["specswitch"] = 0,
@@ -228,7 +229,7 @@ DB["chat"] = {
 	["enable"] = true,                     -- blah
 	["whispersound"] = true,               -- play a sound when receiving whisper
 	["showbackdrop"] = true,				-- show a backdrop on the chat panels
-	["chatwidth"] = 400,					-- width of chat frame
+	["chatwidth"] = 348,					-- width of chat frame
 	["chatheight"] = 111,					-- height of chat frame
 	["fadeoutofuse"] = true,				-- fade chat text when out of use
 	["sticky"] = true,						-- when opening the chat edit box resort to previous channel

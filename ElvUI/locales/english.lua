@@ -25,7 +25,6 @@ L.disband = "Disbanding group."
 L.chat_trade = "Trade"
 
 L.datatext_homelatency = "Home Latency: "
-L.datatext_worldlatency = "World Latency: "
 L.datatext_download = "Download: "
 L.datatext_bandwidth = "Bandwidth: "
 L.datatext_noguild = "No Guild"
@@ -75,7 +74,6 @@ L.datatext_demolishersdestroyed = "Demolishers Destroyed:"
 L.datatext_gatesdestroyed = "Gates Destroyed:"
 L.datatext_totalmemusage = "Total Memory Usage:"
 L.datatext_control = "Controlled by:"
-L.datatext_playerhit = "Hit: "
 
 L.Slots = {
 	[1] = {1, "Head", 1000},
@@ -142,7 +140,7 @@ L.chat_invalidtarget = "Invalid Target"
 L.core_autoinv_enable = "Autoinvite ON: invite"
 L.core_autoinv_enable_c = "Autoinvite ON: "
 L.core_autoinv_disable = "Autoinvite OFF"
-L.core_welcome1 = "Welcome to |cff1784d1ElvUI|r, edit by |cffff8000NiteWolf|r, Version 1.0.0"
+L.core_welcome1 = "Welcome to |cff1784d1ElvUI|r, version %s brought to you by <|cff1784d1tys|r> Spirestone[US] http://tys.wowstead.com, Now Recruiting!"
 L.core_welcome2 = "Type |cff1784d1/uihelp|r for more info, type |cff1784d1/ec|r or |cff1784d1/elvui|r to config, or visit http://www.tukui.org/forums/forum.php?id=84"
 
 L.core_uihelp1 = "|cff00ff00General Slash Commands|r"

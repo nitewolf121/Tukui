@@ -330,7 +330,7 @@ function ElvuiConfig.GenerateOptionsInternal()
 								name = L["Combat Text Font"],
 								desc = L["The font that combat text will use. WARNING: This requires a game restart after changing this option."],
 								values = AceGUIWidgetLSMlists.font,						
-							},	
+							},					
 						},
 					},
 					Textures = {
@@ -661,8 +661,14 @@ function ElvuiConfig.GenerateOptionsInternal()
 								type = "toggle",
 								order = 8,
 								name = L["Character Portrait"],
-								desc = L["Display character portrait on healthbar of available frames"],	
-								disabled = function() return (not db.unitframes.enable) end,								
+								desc = L["Display character portrait on available frames"],								
+							},
+							charportraithealth = {
+								type = "toggle",
+								order = 8,
+								name = L["Character Portrait on Health"],
+								desc = L["Overlay character portrait on the healthbar available frames"],
+								disabled = function() return (not db.unitframes.enable or not db.unitframes.charportrait) end,
 							},
 							classcolor = {
 								type = "toggle",
@@ -694,21 +700,15 @@ function ElvuiConfig.GenerateOptionsInternal()
 								name = L["Color Health by Value"],
 								desc = L["Color the health frame by current ammount of hp remaining"],							
 							},
-							debuffhighlight = {
-								type = "toggle",
-								order = 12,
-								name = L["Debuff Highlighting"],
-								desc = L["Enable highlighting unitframes when there is a debuff you can dispel"],							
-							},
 							healthbackdrop = {
 								type = "toggle",
-								order = 13,
+								order = 12,
 								name = L["Custom Backdrop Color"],
 								desc = L["Enable using the custom backdrop color, otherwise 20% of the current health color gets used"],
 							},
 							healthbackdropcolor = {
 								type = "color",
-								order = 14,
+								order = 13,
 								name = L["Health Backdrop Color"],
 								desc = L["Color of the healthbar's backdrop"],
 								hasAlpha = false,
@@ -726,9 +726,15 @@ function ElvuiConfig.GenerateOptionsInternal()
 							},
 							combatfeedback = {
 								type = "toggle",
-								order = 15,
+								order = 14,
 								name = L["Combat Feedback"],
 								desc = L["Enable displaying incoming damage/healing on player/target frame"],							
+							},
+							debuffhighlight = {
+								type = "toggle",
+								order = 15,
+								name = L["Debuff Highlighting"],
+								desc = L["Enable highlighting unitframes when there is a debuff you can dispel"],							
 							},
 							classbar = {
 								type = "toggle",
@@ -752,8 +758,8 @@ function ElvuiConfig.GenerateOptionsInternal()
 							mini_powerbar = {
 								type = "toggle",
 								order = 19,
-								name = L["Mini-Bar Theme"],
-								desc = L["Style the unitframes with a smaller powerbar and classbar"],	
+								name = L["Mini-Powerbar Theme"],
+								desc = L["Style the unitframes with a smaller powerbar"],		
 								disabled = function() return not db.unitframes.enable or db.unitframes.powerbar_offset ~= 0 end,	
 							},
 							arena = {

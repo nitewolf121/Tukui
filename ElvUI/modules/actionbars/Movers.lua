@@ -61,7 +61,7 @@ function E.ToggleABLock()
 		if E.ABLock == false then
 			_G[btnnames]:EnableMouse(false)
 			_G[btnnames]:Hide()
-			ElvuiInfoLeftRButton.text:SetTextColor(unpack(C["media"].valuecolor))
+			ElvuiInfoLeftRButton.text:SetTextColor(1,1,1)
 		else
 			_G[btnnames]:EnableMouse(true)
 			if btnnames == "RightBarBig" and not (E["actionbar"].rightbars ~= 0 or (E["actionbar"].bottomrows == 3 and E["actionbar"].splitbar == true)) then
@@ -69,7 +69,7 @@ function E.ToggleABLock()
 			elseif btnnames ~= "RightBarBig" then
 				_G[btnnames]:Show()
 			end
-			ElvuiInfoLeftRButton.text:SetTextColor(1,1,1,1)
+			ElvuiInfoLeftRButton.text:SetTextColor(unpack(C["media"].valuecolor))
 		end
 	end
 end
@@ -201,7 +201,7 @@ barloader:SetScript("OnEvent", function(self, addon)
 	RightBarDec:SetPoint("BOTTOMLEFT", ElvuiActionBarBackgroundRight, "BOTTOM", E.Scale(2), E.Scale(-19))
 
 	E.ABLock = false
-	ElvuiInfoLeftRButton.text:SetTextColor(unpack(C["media"].valuecolor))
+	ElvuiInfoLeftRButton.text:SetTextColor(1,1,1)
 	E.PositionAllBars()
 end)
 
