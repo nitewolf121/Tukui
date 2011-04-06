@@ -663,13 +663,6 @@ function ElvuiConfig.GenerateOptionsInternal()
 								name = L["Character Portrait"],
 								desc = L["Display character portrait on available frames"],								
 							},
-							charportraithealth = {
-								type = "toggle",
-								order = 8,
-								name = L["Character Portrait on Health"],
-								desc = L["Overlay character portrait on the healthbar available frames"],
-								disabled = function() return (not db.unitframes.enable or not db.unitframes.charportrait) end,
-							},
 							classcolor = {
 								type = "toggle",
 								order = 9,
@@ -1229,7 +1222,7 @@ function ElvuiConfig.GenerateOptionsInternal()
 								order = 19,
 								name = L["25 Man Layout Party"],
 								desc = L["Use the 25 man layout inside a party group"],
-							},							
+							},
 							raidunitbuffwatch = {
 								type = "toggle",
 								order = 20,

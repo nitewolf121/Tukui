@@ -739,7 +739,7 @@ E.LoadUFFunctions = function(layout)
 	end
 
 	E.PortraitUpdate = function(self, unit) 
-		if C["unitframes"].charportraithealth == true then
+		if C["unitframes"].charportrait == true then
 			self:SetAlpha(0) self:SetAlpha(0.35) 
 		end
 		
@@ -747,7 +747,7 @@ E.LoadUFFunctions = function(layout)
 			self:SetModelScale(4.25)
 			
 			if self.worgenfix then self.worgenfix:Hide() end
-		elseif self:GetModel() and self:GetModel().find and self:GetModel():find("worgenmale") and not C["unitframes"].charportraithealth == true then
+		elseif self:GetModel() and self:GetModel().find and self:GetModel():find("worgenmale") and not C["unitframes"].charportrait == true then
 			self:SetModelScale(0.0000000000000001)
 			
 			if not self.worgenfix then
