@@ -2,8 +2,8 @@
 
 DB["media"] = {
 	-- fonts
-	["font"] = "ElvUI Font", -- general font of Elvui
-	["uffont"] = "ElvUI Font", -- general font of unitframes
+	["font"] = "NiteWolfUI Font", -- general font of Elvui
+	["uffont"] = "NiteWolfUI Font", -- general font of unitframes
 	["dmgfont"] = "ElvUI Combat", -- general font of dmg / sct
 		
 	-- textures
@@ -235,7 +235,7 @@ DB["chat"] = {
 	["enable"] = true,                     -- blah
 	["whispersound"] = true,               -- play a sound when receiving whisper
 	["showbackdrop"] = true,				-- show a backdrop on the chat panels
-	["chatwidth"] = 348,					-- width of chat frame
+	["chatwidth"] = 400,					-- width of chat frame
 	["chatheight"] = 111,					-- height of chat frame
 	["fadeoutofuse"] = true,				-- fade chat text when out of use
 	["sticky"] = true,						-- when opening the chat edit box resort to previous channel
