@@ -456,7 +456,7 @@ function E.LoadClassTimers(Elv_player, Elv_target)
 					end			
 					
 					if ( bit.band( ICON_POSITION, 2 ) == 2 ) then
-						icon:SetPoint( iconAnchor1, result, iconAnchor2, iconOffset * 6, 0 );
+						icon:SetPoint( iconAnchor1, result, iconAnchor2, iconOffset * 5, 0 );
 					else
 						icon:SetPoint( iconAnchor1, result, iconAnchor2, iconOffset * ( -BAR_HEIGHT ), 0 );
 					end			
@@ -724,11 +724,11 @@ function E.LoadClassTimers(Elv_player, Elv_target)
 		end		
 		if ICON_POSITION == 2 then
 			xOffset2 = -2
-			xOffset1 = xOffset1 + BAR_HEIGHT+8
+			xOffset1 = xOffset1 + BAR_HEIGHT+7
 		end
 		if ICON_POSITION == 3 then
 			xOffset1 = 2
-			xOffset2 = xOffset2 - (BAR_HEIGHT+6)
+			xOffset2 = xOffset2 - (BAR_HEIGHT+5)
 		end
 		
 		playerFrame:SetHiddenHeight( -yOffset );
@@ -766,11 +766,11 @@ function E.LoadClassTimers(Elv_player, Elv_target)
 		local xOffset2 = -2
 		if ICON_POSITION == 2 then
 			xOffset2 = -2
-			xOffset1 = xOffset1 + BAR_HEIGHT+8
+			xOffset1 = xOffset1 + BAR_HEIGHT+7
 		end
 		if ICON_POSITION == 3 then
 			xOffset1 = 2
-			xOffset2 = xOffset2 - (BAR_HEIGHT+6)
+			xOffset2 = xOffset2 - (BAR_HEIGHT+5)
 		end
 		
 		local playerFrame = CreateAuraBarFrame( playerDataSource, Elv_player );	
@@ -803,11 +803,11 @@ function E.LoadClassTimers(Elv_player, Elv_target)
 		end		
 		if ICON_POSITION == 2 then
 			xOffset2 = -2
-			xOffset1 = xOffset1 + BAR_HEIGHT+8
+			xOffset1 = xOffset1 + BAR_HEIGHT+7
 		end
 		if ICON_POSITION == 3 then
 			xOffset1 = 2
-			xOffset2 = xOffset2 - (BAR_HEIGHT+6)
+			xOffset2 = xOffset2 - (BAR_HEIGHT+5)
 		end
 		
 		local targetDataSource = CreateUnitAuraDataSource( "target" );
@@ -865,11 +865,11 @@ function E.LoadClassTimers(Elv_player, Elv_target)
 		
 		if ICON_POSITION == 2 then
 			xOffset2 = -2
-			xOffset1 = xOffset1 + BAR_HEIGHT+8
+			xOffset1 = xOffset1 + BAR_HEIGHT+7
 		end
 		if ICON_POSITION == 3 then
 			xOffset1 = 2
-			xOffset2 = xOffset2 - (BAR_HEIGHT+6)
+			xOffset2 = xOffset2 - (BAR_HEIGHT+5)
 		end
 		
 		local targetDataSource = CreateUnitAuraDataSource( "target" );
@@ -930,11 +930,11 @@ function E.LoadClassTimers(Elv_player, Elv_target)
 		end		
 		if ICON_POSITION == 2 then
 			xOffset2 = -2
-			xOffset1 = xOffset1 + BAR_HEIGHT+8
+			xOffset1 = xOffset1 + BAR_HEIGHT+7
 		end
 		if ICON_POSITION == 3 then
 			xOffset1 = 2
-			xOffset2 = xOffset2 - (BAR_HEIGHT+6)
+			xOffset2 = xOffset2 - (BAR_HEIGHT+5)
 		end
 		
 		local playerDataSource = CreateUnitAuraDataSource( "player" );

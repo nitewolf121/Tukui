@@ -139,6 +139,8 @@ L["Unit Frames"] = true
 	L["Display Aggro"] = true
 		L["Enable red glow around the player frame when you have aggro"] = true
 		L["Change the frame's border to red when a unit has aggro"] = true
+	L["Mini-Classbar Theme"] = true
+		L["Make classbars smaller and restyle them"] = true
 	
 L["Frame Sizes"] = true
 	L["Controls the size of the frame"] = true
@@ -234,7 +236,8 @@ L["Raid Frames"] = true
 		L["Glow the unitframe to the unit's Reaction/Class when mouseover'd"] = true
 	L["25 Man Layout Party"] = true
 		L["Use the 25 man layout inside a party group"] = true
-
+	L["Display Debuffs"] = true
+	
 --Classtimer		
 L["Class Timers"] = true
 	L["CLASSTIMER_DESC"] = "Adjust settings for classtimers"
