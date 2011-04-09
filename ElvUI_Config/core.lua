@@ -2250,6 +2250,7 @@ function ElvuiConfig.GenerateOptionsInternal()
 								name = L["Interrupt Announce"],
 								desc = L["Announce when you interrupt a spell"],
 								values = {
+									["NONE"] = L["None"],
 									["SAY"] = CHAT_MSG_SAY,
 									["PARTY"] = PARTY,
 									["RAID"] = RAID,
