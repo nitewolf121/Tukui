@@ -22,10 +22,10 @@ ns.config={
 
 -- appearence
 	["font"] = "Interface\\Addons\\xCT\\28_days_later.ttf",	-- "Fonts\\ARIALN.ttf" is default WoW font.
-	["fontsize"] = 16,
+	["fontsize"] = 20,
 	["fontstyle"] = "OUTLINE",	-- valid options are "OUTLINE", "MONOCHROME", "THICKOUTLINE", "OUTLINE,MONOCHROME", "THICKOUTLINE,MONOCHROME"
 	["damagefont"] = "Interface\\Addons\\xCT\\defused.ttf",	 -- "Fonts\\FRIZQT__.ttf" is default WoW damage font
-	["damagefontsize"] = 24,	-- size of xCT damage font. use "auto" to set it automatically depending on icon size, or use own value, 16 for example. if it's set to number value icons will change size.
+	["damagefontsize"] = 26,	-- size of xCT damage font. use "auto" to set it automatically depending on icon size, or use own value, 16 for example. if it's set to number value icons will change size.
 	["timevisible"] = 3, 		-- time (seconds) a single message will be visible. 3 is a good value.
 	["scrollable"] = false,		-- allows you to scroll frame lines with mousewheel.
 	["maxlines"] = 64,		-- max lines to keep in scrollable mode. more lines=more memory. nom nom nom.

@@ -541,7 +541,7 @@ for i=1,numf do
 	elseif(i==3)then
 		f:SetJustifyH(ct.justify_3)
 		f:SetWidth(256)
-		f:SetPoint("CENTER",0,300)
+		f:SetPoint("CENTER",0,250)
 	else
 		f:SetJustifyH(ct.justify_4)
 		f:SetPoint("CENTER",320,0)
