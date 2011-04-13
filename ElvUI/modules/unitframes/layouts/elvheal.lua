@@ -1272,12 +1272,12 @@ local function LoadHealLayout()
 
 	-- Player
 	local player = oUF:Spawn('player', "ElvHeal_player")
-	player:Point("BOTTOMRIGHT", ElvuiSplitActionBarLeftBackground, "TOPRIGHT", 0, 200)
+	player:Point("BOTTOMRIGHT", ElvuiSplitActionBarLeftBackground, "TOPRIGHT", 0, 230)
 	player:Size(PLAYER_WIDTH, PLAYER_HEIGHT)
 
 	-- Target
 	local target = oUF:Spawn('target', "ElvHeal_target")
-	target:Point("BOTTOMLEFT", ElvuiSplitActionBarRightBackground, "TOPLEFT", 0, 200)
+	target:Point("BOTTOMLEFT", ElvuiSplitActionBarRightBackground, "TOPLEFT", 0, 230)
 	target:SetSize(TARGET_WIDTH, TARGET_HEIGHT)
 
 	-- Target's Target

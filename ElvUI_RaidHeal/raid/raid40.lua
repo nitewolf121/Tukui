@@ -228,7 +228,7 @@ oUF:Factory(function(self)
 		"columnSpacing", 3,
 		"columnAnchorPoint", "TOP"		
 	)
-	raid:SetPoint("BOTTOM", ElvuiActionBarBackground, "TOP", 0, E.Scale(6))	
+	raid:SetPoint("BOTTOM", ElvuiActionBarBackground, "TOP", 0, E.Scale(36))	
 	
 	local raidToggle = CreateFrame("Frame")
 	raidToggle:RegisterEvent("PLAYER_ENTERING_WORLD")

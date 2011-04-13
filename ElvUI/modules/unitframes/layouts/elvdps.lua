@@ -1238,12 +1238,12 @@ local function LoadDPSLayout()
 
 	-- Player
 	local player = oUF:Spawn('player', "ElvDPS_player")
-	player:Point("BOTTOMLEFT", ElvuiSplitActionBarLeftBackground, "TOPLEFT", 0, 55)
+	player:Point("BOTTOMLEFT", ElvuiSplitActionBarLeftBackground, "TOPLEFT", 0, 65)
 	player:Size(PLAYER_WIDTH, PLAYER_HEIGHT)
 
 	-- Target
 	local target = oUF:Spawn('target', "ElvDPS_target")
-	target:Point("BOTTOMRIGHT", ElvuiSplitActionBarRightBackground, "TOPRIGHT", 0, 55)
+	target:Point("BOTTOMRIGHT", ElvuiSplitActionBarRightBackground, "TOPRIGHT", 0, 65)
 	target:Size(TARGET_WIDTH, TARGET_HEIGHT)
 
 	-- Focus
@@ -1253,7 +1253,7 @@ local function LoadDPSLayout()
 
 	-- Target's Target
 	local tot = oUF:Spawn('targettarget', "ElvDPS_targettarget")
-	tot:Point("BOTTOM", ElvuiActionBarBackground, "TOP", 0, 55)
+	tot:Point("BOTTOM", ElvuiActionBarBackground, "TOP", 0, 65)
 	tot:Size(SMALL_WIDTH, SMALL_HEIGHT)
 
 	-- Player's Pet
