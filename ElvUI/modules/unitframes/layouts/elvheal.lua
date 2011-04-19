@@ -738,44 +738,20 @@ local function Shared(self, unit)
 		
 		--Portrait
 		if C["unitframes"].charportrait == true then
-			if C["unitframes"].charportraithealth == true then
-				local portrait = CreateFrame("PlayerModel", nil, health)
-				portrait:SetFrameLevel(health:GetFrameLevel() + 1)
-				portrait:SetAllPoints(health)
-				portrait.PostUpdate = E.PortraitUpdate			
-				self.Portrait = portrait
+			local portrait = CreateFrame("PlayerModel", nil, health)
+			portrait:SetFrameLevel(health:GetFrameLevel() + 1)
+			portrait:SetAllPoints(health)
+			portrait.PostUpdate = E.PortraitUpdate			
+			self.Portrait = portrait
 				
-				local overlay = CreateFrame("Frame", nil, self)
-				overlay:SetFrameLevel(self:GetFrameLevel() - 2)
+			local overlay = CreateFrame("Frame", nil, self)
+			overlay:SetFrameLevel(self:GetFrameLevel() - 2)
 				
-				health.bg:ClearAllPoints()
-				health.bg:Point('BOTTOMLEFT', health:GetStatusBarTexture(), 'BOTTOMRIGHT')
-				health.bg:Point('TOPRIGHT', health)
-				health.bg:SetDrawLayer("OVERLAY", 7)
-				health.bg:SetParent(overlay)
-			else
-				--Reposition Health
-				health:Point("TOPRIGHT", -(PORTRAIT_WIDTH+BORDER), -BORDER)
-				
-				local portrait = CreateFrame("PlayerModel", nil, self)
-				portrait:SetFrameStrata("LOW")
-				portrait.backdrop = CreateFrame("Frame", nil, portrait)
-				portrait.backdrop:SetTemplate("Default")
-				portrait.backdrop:SetPoint("TOPRIGHT", self, "TOPRIGHT")
-				if POWERTHEME == true then
-					portrait.backdrop:Point("BOTTOMLEFT", health.backdrop, "BOTTOMRIGHT", SPACING, 0)
-				else
-					portrait.backdrop:Point("BOTTOMLEFT", power.backdrop, "BOTTOMRIGHT", SPACING, 0)
-				end				
-				portrait.backdrop:SetFrameLevel(portrait:GetFrameLevel() - 1)
-				
-				portrait:Point('BOTTOMLEFT', portrait.backdrop, 'BOTTOMLEFT', BORDER, BORDER)		
-				portrait:Point('TOPRIGHT', portrait.backdrop, 'TOPRIGHT', -BORDER, -BORDER)
-				
-				portrait.PostUpdate = E.PortraitUpdate	
-				
-				self.Portrait = portrait
-			end
+			health.bg:ClearAllPoints()
+			health.bg:Point('BOTTOMLEFT', health:GetStatusBarTexture(), 'BOTTOMRIGHT')
+			health.bg:Point('TOPRIGHT', health)
+			health.bg:SetDrawLayer("OVERLAY", 7)
+			health.bg:SetParent(overlay)
 		end
 				
 		--Auras
