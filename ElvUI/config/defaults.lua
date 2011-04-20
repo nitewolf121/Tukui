@@ -186,6 +186,7 @@ DB["actionbar"] = {
 	["verticalstance"] = false,				--make stance bar vertical
 	["microbar"] = false,					--enable microbar display
 	["mousemicro"] = false,					--only show microbar on mouseover
+	["aboveuf"] = false,					--move main action bar above unit frames (must be using low resolution and swaptopbottombar to work)
 	
 	["enablecd"] = true,                     -- do i really need to explain this?
 	["treshold"] = 3,                      -- show decimal under X seconds and text turn red

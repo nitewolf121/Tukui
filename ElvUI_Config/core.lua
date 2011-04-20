@@ -1838,6 +1838,13 @@ function ElvuiConfig.GenerateOptionsInternal()
 								desc = L["Display blizzards default microbar when mouseovered"],
 								disabled = function() return not db.actionbar.enable or not db.actionbar.microbar end,
 							},
+							aboveuf = {
+								type = "toggle",
+								order = 15,
+								name = L["Main actionbar above unitframes"],
+								desc = L["Display the main action bar above standard unit frames"],
+								disabled = function() return not db.actionbar.enable or not db.actionbar.swaptopbottombar end,
+							},
 						},
 					},
 					CDGroup = {

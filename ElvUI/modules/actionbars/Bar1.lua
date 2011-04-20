@@ -9,7 +9,11 @@ if not C["actionbar"].enable == true then return end
 
 local bar = CreateFrame("Frame", "ElvuiMainMenuBar", ElvuiActionBarBackground, "SecureHandlerStateTemplate")
 bar:ClearAllPoints()
-bar:SetAllPoints(ElvuiActionBarBackground)
+if C["actionbar"].aboveuf == true then
+	bar:SetAllPoints(ElvuiActionBarBackground2)
+else
+	bar:SetAllPoints(ElvuiActionBarBackground)
+end
 
 --[[ 
 	Bonus bar classes id

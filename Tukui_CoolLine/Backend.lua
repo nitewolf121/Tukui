@@ -3,10 +3,9 @@ local name, Backend = ...
 TukuiCoolLineConfig = {}
 
 Backend["Defaults"] = {
-    ["InactiveAlpha"] = 1.0,
+    ["InactiveAlpha"] = 0,
     ["ActiveAlpha"]   = 1.0,
     ["Docking"]       = true,
-    ["Height"]        = 18,
     ["Expand"]        = true,
 }
 Backend["Config"] = TukuiCoolLineConfig

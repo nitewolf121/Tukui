@@ -143,19 +143,37 @@ function E.PositionAllPanels()
 	end
 	
 	if E.lowversion == true then
-		if E["actionbar"].bottomrows == 3 then
-			ElvuiActionBarBackground:SetHeight((E.buttonsize * 3) + (E.buttonspacing * 4))
-		elseif E["actionbar"].bottomrows == 2 then
-			ElvuiActionBarBackground:SetHeight((E.buttonsize * 2) + (E.buttonspacing * 3))
+		if C["actionbar"].aboveuf == true then
+			if E["actionbar"].bottomrows == 3 then
+				ElvuiActionBarBackground:SetHeight((E.buttonsize * 2) + (E.buttonspacing * 3))
+			elseif E["actionbar"].bottomrows == 2 then
+				ElvuiActionBarBackground:SetHeight(E.buttonsize + (E.buttonspacing * 2))
+			else
+				ElvuiActionBarBackground:SetHeight(E.buttonspacing)
+			end
 		else
-			ElvuiActionBarBackground:SetHeight(E.buttonsize + (E.buttonspacing * 2))
+			if E["actionbar"].bottomrows == 3 then
+				ElvuiActionBarBackground:SetHeight((E.buttonsize * 3) + (E.buttonspacing * 4))
+			elseif E["actionbar"].bottomrows == 2 then
+				ElvuiActionBarBackground:SetHeight((E.buttonsize * 2) + (E.buttonspacing * 3))
+			else
+				ElvuiActionBarBackground:SetHeight(E.buttonsize + (E.buttonspacing * 2))
+			end
 		end
 	else
-		if E["actionbar"].bottomrows > 1 then
-			ElvuiActionBarBackground:SetHeight((E.buttonsize * 2) + (E.buttonspacing * 3))
+		if C["actionbar"].aboveuf == true then
+			if E["actionbar"].bottomrows > 1 then
+				ElvuiActionBarBackground:SetHeight(E.buttonsize + (E.buttonspacing * 2))
+			else
+				ElvuiActionBarBackground:SetHeight(E.buttonspacing)
+			end
 		else
-			ElvuiActionBarBackground:SetHeight(E.buttonsize + (E.buttonspacing * 2))
-		end	
+			if E["actionbar"].bottomrows > 1 then
+				ElvuiActionBarBackground:SetHeight((E.buttonsize * 2) + (E.buttonspacing * 3))
+			else
+				ElvuiActionBarBackground:SetHeight(E.buttonsize + (E.buttonspacing * 2))
+			end	
+		end
 	end
 	
 	--SplitBar
@@ -181,8 +199,13 @@ function E.PositionAllPanels()
 		ElvuiSplitActionBarLeftBackground:SetWidth((E.buttonsize * 6) + (E.buttonspacing * 7))
 		ElvuiSplitActionBarRightBackground:SetWidth((E.buttonsize * 6) + (E.buttonspacing * 7))
 	end
-	ElvuiSplitActionBarLeftBackground:SetHeight(ElvuiActionBarBackground:GetHeight())
-	ElvuiSplitActionBarRightBackground:SetHeight(ElvuiActionBarBackground:GetHeight())
+	if C["actionbar"].aboveuf == true then
+		ElvuiSplitActionBarLeftBackground:SetHeight(ElvuiActionBarBackground:GetHeight() + (E.buttonsize + E.buttonspacing))
+		ElvuiSplitActionBarRightBackground:SetHeight(ElvuiActionBarBackground:GetHeight() + (E.buttonsize + E.buttonspacing))
+	else
+		ElvuiSplitActionBarLeftBackground:SetHeight(ElvuiActionBarBackground:GetHeight())
+		ElvuiSplitActionBarRightBackground:SetHeight(ElvuiActionBarBackground:GetHeight())
+	end
 	
 	--RightBar
 	ElvuiActionBarBackgroundRight:Show()

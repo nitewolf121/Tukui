@@ -119,14 +119,31 @@ if C["actionbar"].enable ~= true then
 	barbg:SetAlpha(0)
 end
 
+-- ACTION BAR ABOVE UNITFRAMES (FOR PREACH'S SORRY ASS =P)
+local barbg2 = CreateFrame("Frame", "ElvuiActionBarBackground2", UIParent)
+if C["actionbar"].bottompetbar ~= true then
+	barbg2:CreatePanel("Default", 1, 1, "BOTTOM", UIParent, "BOTTOM", 0, E.Scale(350))
+else
+	barbg2:CreatePanel("Default", 1, 1, "BOTTOM", UIParent, "BOTTOM", 0, (E.buttonsize + (E.buttonspacing * 2)) + E.Scale(354))
+end
+barbg2:SetWidth(math.ceil((E.buttonsize * 12) + (E.buttonspacing * 13)))
+barbg2:SetFrameStrata("BACKGROUND")
+barbg2:SetHeight(E.buttonsize + (E.buttonspacing * 2))
+barbg2:CreateShadow("Default")
+barbg2:SetFrameLevel(2)
+
+if C["actionbar"].aboveuf ~= true then
+	barbg2:SetAlpha(0)
+end
+
 --SPLIT BAR PANELS
 local splitleft = CreateFrame("Frame", "ElvuiSplitActionBarLeftBackground", ElvuiActionBarBackground)
-splitleft:CreatePanel("Default", (E.buttonsize * 6) + (E.buttonspacing * 7), ElvuiActionBarBackground:GetHeight(), "RIGHT", ElvuiActionBarBackground, "LEFT", E.Scale(-4), 0)
+splitleft:CreatePanel("Default", (E.buttonsize * 6) + (E.buttonspacing * 7), ElvuiActionBarBackground:GetHeight(), "BOTTOMRIGHT", ElvuiActionBarBackground, "BOTTOMLEFT", E.Scale(-4), 0)
 splitleft:SetFrameLevel(ElvuiActionBarBackground:GetFrameLevel())
 splitleft:SetFrameStrata(ElvuiActionBarBackground:GetFrameStrata())
 
 local splitright = CreateFrame("Frame", "ElvuiSplitActionBarRightBackground", ElvuiActionBarBackground)
-splitright:CreatePanel("Default", (E.buttonsize * 6) + (E.buttonspacing * 7), ElvuiActionBarBackground:GetHeight(), "LEFT", ElvuiActionBarBackground, "RIGHT", E.Scale(4), 0)
+splitright:CreatePanel("Default", (E.buttonsize * 6) + (E.buttonspacing * 7), ElvuiActionBarBackground:GetHeight(), "BOTTOMLEFT", ElvuiActionBarBackground, "BOTTOMRIGHT", E.Scale(4), 0)
 splitright:SetFrameLevel(ElvuiActionBarBackground:GetFrameLevel())
 splitright:SetFrameStrata(ElvuiActionBarBackground:GetFrameStrata())
 

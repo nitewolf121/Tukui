@@ -6,7 +6,6 @@ local name, Backend = ...
 function Backend:Install()
 	StaticPopup_Show("TUKUICOOLLINE_FIRSTRUN")
 	Backend.CLDB.font = self["Defaults"]["Font"]
-	Backend.CLDB.h = self.Scale(self["Defaults"]["Height"])
 end
 
 Backend.OnAddOnLoaded = function(self)

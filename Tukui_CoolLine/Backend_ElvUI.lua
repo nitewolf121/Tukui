@@ -2,11 +2,11 @@ local _, Backend = ...
 
 if Backend.UI ~= "ElvUI" then return end
 
-local E, C, L, DB = unpack(ElvUI)
+local E, C, L = unpack(ElvUI)
 local cl = Backend.CL
 
 Backend["Defaults"]["Parent"] = "ElvuiActionBarBackground"
-Backend["Defaults"]["Font"]   = C["media"].font
+Backend["Defaults"]["Font"]   = C["media"]["font"]
 Backend["Defaults"]["FontSize"] = C["general"].fontscale
 Backend["Defaults"]["ConfFColor"] = C["media"].valuecolor
 Backend["Defaults"]["Mult"] = E.mult
@@ -25,36 +25,48 @@ end
 local oldSkin = Backend.Skin
 Backend.Skin = function(self)
     oldSkin(self)
-    --cl.background:CreateShadow("Default")
     self:OnUpdate()
     if self.Config.Expand and self.Config.Docking then
         LeftSplit:HookScript("OnMouseDown", function() self:OnUpdate() end)
         RightSplit:HookScript("OnMouseDown", function() self:OnUpdate() end)
     end
     --E.CreateMover(CoolLine, "CoolLineMover", "CoolLine Frame", true, function(self) Backend:OnUpdate() end)
-
 end
 
 Backend.OnUpdate = function(self)
     if not self.Config.Docking then
 		if cl.overlayBtn then cl.overlayBtn:Hide() end
-		ElvuiMainMenuBar:ClearAllPoints()
-		ElvuiMainMenuBar:SetPoint("TOPLEFT", 0, 0)
-		ElvuiMainMenuBar:SetPoint("BOTTOMRIGHT")
+		-- ElvuiMainMenuBar:ClearAllPoints()
+		-- ElvuiMainMenuBar:SetPoint("TOPLEFT", 0, 0)
+		-- ElvuiMainMenuBar:SetPoint("BOTTOMRIGHT")
+		
+		if C["actionbar"].aboveuf == true then
+			TopMainBar:SetPoint("BOTTOMLEFT", ElvuiBar2, "TOPLEFT", 0, self.Scale(4))
+			TopMainBar:SetPoint("TOPRIGHT", ElvuiBar2, "TOPRIGHT", 0, self.Scale(19))
+		else
+			TopMainBar:SetPoint("BOTTOMLEFT", ElvuiMainMenuBar, "TOPLEFT", 0, self.Scale(4))
+			TopMainBar:SetPoint("TOPRIGHT", ElvuiMainMenuBar, "TOPRIGHT", 0, self.Scale(19))
+		end
 		cl:ClearAllPoints()
 	else
 		self:ToggleConfigBG()
 		local isSplitEnabled = E["actionbar"].splitbar and self.Config.Expand
 		local parent = isSplitEnabled and ElvuiSplitActionBarRightBackground or self:GetParent()
-		self.CLDB.w = parent:GetWidth() - self.Scale(5)
 		self.CLDB.w = isSplitEnabled and
 				 ElvuiSplitActionBarRightBackground:GetRight() - ElvuiSplitActionBarLeftBackground:GetLeft() - self.Scale(4)
-				 or parent:GetWidth() - E.Scale(4) -- Magic number to match ElvUI's actionbar width
+				 or parent:GetWidth() - self.Scale(4) -- Magic number to match ElvUI's actionbar width
 		
-		ElvuiMainMenuBar:ClearAllPoints()
-		ElvuiMainMenuBar:SetPoint("TOPLEFT", 0, self.Scale(self.Config.Height+8))
-		ElvuiMainMenuBar:SetPoint("BOTTOMRIGHT")
-
+		-- ElvuiMainMenuBar:ClearAllPoints()
+		-- ElvuiMainMenuBar:SetPoint("TOPLEFT", 0, self.Scale(self.CLDB.h+8))
+		-- ElvuiMainMenuBar:SetPoint("BOTTOMRIGHT")
+		
+		if C["actionbar"].aboveuf == true then
+			TopMainBar:SetPoint("BOTTOMLEFT", ElvuiBar2, "TOPLEFT", 0, self.Scale(12)+self.CLDB.h)
+			TopMainBar:SetPoint("TOPRIGHT", ElvuiBar2, "TOPRIGHT", 0, self.Scale(27)+self.CLDB.h)
+		else
+			TopMainBar:SetPoint("BOTTOMLEFT", ElvuiMainMenuBar, "TOPLEFT", 0, self.Scale(12)+self.CLDB.h)
+			TopMainBar:SetPoint("TOPRIGHT", ElvuiMainMenuBar, "TOPRIGHT", 0, self.Scale(27)+self.CLDB.h)
+		end
 		cl:updatelook()
 		cl:Point("BOTTOMRIGHT", parent, "TOPRIGHT", -2, 4)
 	end

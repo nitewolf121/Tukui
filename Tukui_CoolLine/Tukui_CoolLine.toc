@@ -2,7 +2,7 @@
 ## Title: |cffC495DDTukui CoolLine|r
 ## Notes: Tukui CoolLine Skin
 ## Author: Tacsko
-## Version 1.0beta4
+## Version 1.0
 ## SavedVariables: TukuiCoolLineConfig
 ## RequiredDeps: CoolLine
 ## OptionalDeps: Tukui, ElvUI

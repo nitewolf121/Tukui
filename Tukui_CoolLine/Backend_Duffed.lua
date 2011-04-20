@@ -27,7 +27,6 @@ Backend.OnUpdate = function(self)
 	if not self.Config.Docking then
 		if self.CL.overlayBtn then self.CL.overlayBtn:Hide() end
 		self.CL:ClearAllPoints()
-		T.cbPosition()
 	else
 		self:ToggleConfigBG()
 		local yOffset = 0
@@ -52,8 +51,8 @@ Backend.OnUpdate = function(self)
 		end
 		self.CL:updatelook()
 		self.CL:Point("BOTTOMRIGHT", parent, "TOPRIGHT", xOffset-2, yOffset+4)
-		T.cbPosition()
 	end
+	T.cbPosition()
 end
 
 local oldCBPosition = T.cbPosition
