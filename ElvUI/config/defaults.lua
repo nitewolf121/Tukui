@@ -4,7 +4,7 @@ DB["media"] = {
 	-- fonts
 	["font"] = "NiteWolfUI Font", -- general font of Elvui
 	["uffont"] = "NiteWolfUI Font", -- general font of unitframes
-	["dmgfont"] = "ElvUI Combat", -- general font of dmg / sct
+	["dmgfont"] = "NiteWolfUI2 Combat", -- general font of dmg / sct
 		
 	-- textures
 	["normTex"] = "ElvUI Norm", -- texture used for Elvui healthbar/powerbar/etc
