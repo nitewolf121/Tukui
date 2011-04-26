@@ -318,5 +318,13 @@ inforight:SetPoint("BOTTOMRIGHT", chatrbgdummy2, "BOTTOMRIGHT", E.Scale(-17), E.
 	inforightRbutton.text:SetPoint("CENTER")
 	inforightRbutton.text:SetTextColor(unpack(C["media"].valuecolor))
 	
+--BOTTOM INFO
+local bspanel = CreateFrame("Frame", "ElvuiInfoBottomCenter", UIParent)
+bspanel:SetTemplate("Default", true)
+bspanel:SetFrameLevel(2)
+bspanel:CreateShadow("Default")
+bspanel:Point("TOPLEFT", ElvuiSplitActionBarLeftBackground, "BOTTOMLEFT", 0, -4)
+bspanel:Point("BOTTOMRIGHT", ElvuiSplitActionBarRightBackground, "BOTTOMRIGHT", 0, -26)
+	
 TukuiInfoLeft = ElvuiInfoLeft -- conversion
 TukuiInfoRight = ElvuiInfoRight -- conversion	

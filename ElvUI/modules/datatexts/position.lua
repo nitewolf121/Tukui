@@ -8,6 +8,8 @@ function E.PP(p, obj)
 	local right = ElvuiInfoRight
 	local mapleft = ElvuiMinimapStatsLeft
 	local mapright = ElvuiMinimapStatsRight
+	local bottom = ElvuiInfoBottomCenter
+	local x = bottom:GetWidth()/5
 	local t
 	if obj:GetParent():GetName() == "TimeDataText" or obj:GetParent():GetName() == "DurabilityDataText" then t = true else t = false end
 	
@@ -32,17 +34,43 @@ function E.PP(p, obj)
 		if t ~= true then obj:SetParent(left) else obj:GetParent():SetParent(left) end
 		tinsert(E.LeftDatatexts, obj)
 	elseif p == 4 then
+		obj:SetHeight(bottom:GetHeight())
+		obj:SetPoint("LEFT", bottom, 5, 0)
+		obj:SetPoint('TOP', bottom)
+		obj:SetPoint('BOTTOM', bottom)
+		if t ~= true then obj:SetParent(left) else obj:GetParent():SetParent(left) end
+		tinsert(E.LeftDatatexts, obj)
+	elseif p == 5 then
+		obj:SetHeight(bottom:GetHeight())
+		obj:SetPoint("RIGHT", bottom, "CENTER", -(0.4 * x), 0)
+		obj:SetPoint('TOP', bottom)
+		obj:SetPoint('BOTTOM', bottom)
+		if t ~= true then obj:SetParent(left) else obj:GetParent():SetParent(left) end
+		tinsert(E.LeftDatatexts, obj)
+	elseif p == 6 then
+		obj:SetHeight(bottom:GetHeight())
+		obj:SetPoint("LEFT", bottom, "CENTER", 0.4 * x, 0)
+		obj:SetPoint('TOP', bottom)
+		obj:SetPoint('BOTTOM', bottom)
+		if t ~= true then obj:SetParent(right) else obj:GetParent():SetParent(right) end
+	elseif p == 7 then
+		obj:SetHeight(bottom:GetHeight())
+		obj:SetPoint("RIGHT", bottom, -5, 0)
+		obj:SetPoint('TOP', bottom)
+		obj:SetPoint('BOTTOM', bottom)
+		if t ~= true then obj:SetParent(right) else obj:GetParent():SetParent(right) end
+	elseif p == 8 then
 		obj:SetHeight(right:GetHeight())
 		obj:SetPoint("LEFT", right, 5, 0)
 		obj:SetPoint('TOP', right)
 		obj:SetPoint('BOTTOM', right)
 		if t ~= true then obj:SetParent(right) else obj:GetParent():SetParent(right) end
-	elseif p == 5 then
+	elseif p == 9 then
 		obj:SetHeight(right:GetHeight())
 		obj:SetPoint('TOP', right)
 		obj:SetPoint('BOTTOM', right)
 		if t ~= true then obj:SetParent(right) else obj:GetParent():SetParent(right) end
-	elseif p == 6 then
+	elseif p == 10 then
 		obj:SetHeight(right:GetHeight())
 		obj:SetPoint("RIGHT", right, -5, 0)
 		obj:SetPoint('TOP', right)
@@ -51,11 +79,11 @@ function E.PP(p, obj)
 	end
 	
 	if ElvuiMinimap then
-		if p == 7 then
+		if p == 11 then
 			obj:SetHeight(mapleft:GetHeight())
 			obj:SetPoint("CENTER", mapleft, 0, 0)
 			if t ~= true then obj:SetParent(mapleft) else obj:GetParent():SetParent(mapleft) end
-		elseif p == 8 then
+		elseif p == 12 then
 			obj:SetHeight(ElvuiMinimapStatsRight:GetHeight())
 			obj:SetPoint("CENTER", ElvuiMinimapStatsRight, 0, 0)
 			if t ~= true then obj:SetParent(mapright) else obj:GetParent():SetParent(mapright) end
@@ -63,11 +91,11 @@ function E.PP(p, obj)
 	end
 	
 	if C["general"].upperpanel == true then
-		if p == 9 then
+		if p == 13 then
 			obj:SetHeight(ElvuiStat9Block:GetHeight())
 			obj:SetPoint("CENTER", ElvuiStat9Block, 0, 0)
 			if t ~= true then obj:SetParent(ElvuiStat9Block) else obj:GetParent():SetParent(ElvuiStat9Block) end
-		elseif p == 10 then
+		elseif p == 14 then
 			obj:SetHeight(ElvuiStat10Block:GetHeight())
 			obj:SetPoint("CENTER", ElvuiStat10Block, 0, 0)
 			if t ~= true then obj:SetParent(ElvuiStat10Block) else obj:GetParent():SetParent(ElvuiStat10Block) end
