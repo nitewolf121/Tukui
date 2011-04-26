@@ -1947,7 +1947,7 @@ function ElvuiConfig.GenerateOptionsInternal()
 						name = L["Font Scale"],
 						desc = L["Font size for datatexts"],
 						type = "range",
-						min = 9, max = 15, step = 1,					
+						min = 8, max = 15, step = 1,					
 					},
 					time24 = {
 						order = 4,
