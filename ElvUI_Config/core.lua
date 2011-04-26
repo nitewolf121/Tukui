@@ -639,7 +639,14 @@ function ElvuiConfig.GenerateOptionsInternal()
 								name = L["Combat Text Font"],
 								desc = L["The font that combat text will use. WARNING: This requires a game restart after changing this option."],
 								values = AceGUIWidgetLSMlists.font,						
-							},					
+							},
+							datafont = {
+								type = "select", dialogControl = 'LSM30_Font',
+								order = 4,
+								name = L["Data Text Font"],
+								desc = L["The font that data text will use."],
+								values = AceGUIWidgetLSMlists.font,						
+							},							
 						},
 					},
 					Textures = {

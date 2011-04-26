@@ -303,19 +303,19 @@ else
 	x = math.floor(100 * x)
 	y = math.floor(100 * y)	
 	
-	ElvuiLoc:FontString("zone", C["media"].font, C["datatext"].fontsize, "THINOUTLINE")
+	ElvuiLoc:FontString("zone", C["media"].datafont, C["datatext"].fontsize, "THINOUTLINE")
 	ElvuiLoc.zone:SetPoint("CENTER")
 	ElvuiLoc.zone:SetText(strsub(GetMinimapZoneText(),1,23))
 	ElvuiLoc:EnableMouse(true)
 	ElvuiLoc:SetScript("OnMouseDown", function() ToggleFrame(WorldMapFrame) end)
 	
 	
-	ElvuiLocX:FontString("coord", C["media"].font, C["datatext"].fontsize, "THINOUTLINE")
+	ElvuiLocX:FontString("coord", C["media"].datafont, C["datatext"].fontsize, "THINOUTLINE")
 	ElvuiLocX.coord:SetPoint("CENTER", ElvuiLocX, "CENTER")
 	ElvuiLocX.coord:SetText(x)	
 	ElvuiLocX.coord:SetTextColor(unpack(C["media"].valuecolor))
 	
-	ElvuiLocY:FontString("coord", C["media"].font, C["datatext"].fontsize, "THINOUTLINE")
+	ElvuiLocY:FontString("coord", C["media"].datafont, C["datatext"].fontsize, "THINOUTLINE")
 	ElvuiLocY.coord:SetPoint("CENTER", ElvuiLocY, "CENTER")
 	ElvuiLocY.coord:SetText(y)	
 	ElvuiLocY.coord:SetTextColor(unpack(C["media"].valuecolor))

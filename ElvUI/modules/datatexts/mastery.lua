@@ -10,7 +10,7 @@ Stat:SetFrameStrata("MEDIUM")
 Stat:SetFrameLevel(3)
 
 local Text  = ElvuiInfoLeft:CreateFontString(nil, "LOW")
-Text:SetFont(C["media"].font, C["datatext"].fontsize, "THINOUTLINE")
+Text:SetFont(C["media"].datafont, C["datatext"].fontsize, "THINOUTLINE")
 Text:SetShadowOffset(E.mult, -E.mult)
 E.PP(C["datatext"].mastery, Text)
 

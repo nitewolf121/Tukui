@@ -54,6 +54,7 @@ C["classtimer"].proccolor = {E.UnpackColors(C["classtimer"].proccolor)}
 C["media"].font = LSM:Fetch("font", C["media"].font)
 C["media"].uffont = LSM:Fetch("font", C["media"].uffont)
 C["media"].dmgfont = LSM:Fetch("font", C["media"].dmgfont)
+C["media"].datafont = LSM:Fetch("font", C["media"].datafont)
 C["media"].normTex = LSM:Fetch("statusbar", C["media"].normTex)
 C["media"].glossTex = LSM:Fetch("statusbar", C["media"].glossTex)
 C["media"].glowTex = LSM:Fetch("border", C["media"].glowTex)
