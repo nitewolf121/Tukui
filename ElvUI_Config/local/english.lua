@@ -350,6 +350,10 @@ L["Data Texts"] = true
 		L["Display Critical Strike Rating"] = true
 	L["Mana Regen"] = true
 		L["Display Mana Regen Rate"] = true
+	L["Dodge"] = true
+		L["Display dodge chance"] = true
+	L["Parry"] = true
+		L["Display parry chance"] = true
 	
 	
 --chat
