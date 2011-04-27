@@ -1,9 +1,8 @@
-## Interface: 40000
-## Author: Smelly
-## Version: 1.3
+## Interface: 40100
+## Author: Smelly, Hydra
+## Version: 1.0
 ## Title: |cffC495DDs|rCombo
 ## Notes: Minimal Combo Bar Replacement.
 ## RequiredDeps: Tukui
 
-sCombo.lua
-
+sCombo.xml
