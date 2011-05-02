@@ -17,6 +17,7 @@ LSM:Register("font","NiteWolfUI3 Combat", [[Interface\AddOns\ElvUI\media\fonts\P
 LSM:Register("font","NiteWolfUI4 Combat", [[Interface\AddOns\ElvUI\media\fonts\SoulMission.ttf]])
 LSM:Register("font","NiteWolfUI5 Combat", [[Interface\AddOns\ElvUI\media\fonts\Very_Damaged.ttf]])
 LSM:Register("font","NiteWolfUI6 Combat", [[Interface\AddOns\ElvUI\media\fonts\28_days_later.ttf]])
+LSM:Register("font","ElvUI Alt-Font", [[Interface\AddOns\ElvUI\media\fonts\Continuum_Medium.ttf]])
 LSM:Register("font","ElvUI Combat", [[Interface\AddOns\ElvUI\media\fonts\Action_Man.ttf]])
 LSM:Register("font","ElvUI Alt-Combat", [[Interface\AddOns\ElvUI\media\fonts\DieDieDie.ttf]])
 LSM:Register("sound","ElvUI Warning", [[Interface\AddOns\ElvUI\media\sounds\warning.mp3]])
