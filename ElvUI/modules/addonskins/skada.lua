@@ -127,6 +127,9 @@ function EmbedSkada()
 		EmbedWindow(windows[2], ((C["chat"].chatwidth - 4) / 2) - (borderWidth + E.mult), (C["chat"].chatheight - (barSpacing * 8)) / 8, C["chat"].chatheight / 2,  "TOPLEFT", ChatRBackground2, "TOPLEFT", 2, -2)
 		EmbedWindow(windows[3], windows[2].db.barwidth, (C["chat"].chatheight - (barSpacing * 8)) / 8, C["chat"].chatheight / 2,  "TOPLEFT", windows[2].bargroup.bgframe, "BOTTOMLEFT", 2, -2)
 	end
+	
+	ChatRBackground:HookScript("OnShow", function() Skada:SetActive(false) end)
+	ChatRBackground:HookScript("OnHide", function() Skada:SetActive(true) end)
 end
 
 -- Update pre-existing displays
@@ -168,4 +171,5 @@ if C["skin"].embedright == "Skada" then
 		
 		EmbedSkada()
 	end)	
+	
 end
