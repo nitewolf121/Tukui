@@ -39,14 +39,8 @@ Backend.OnUpdate = function(self)
 		-- ElvuiMainMenuBar:ClearAllPoints()
 		-- ElvuiMainMenuBar:SetPoint("TOPLEFT", 0, 0)
 		-- ElvuiMainMenuBar:SetPoint("BOTTOMRIGHT")
-		
-		if C["actionbar"].aboveuf == true then
-			TopMainBar:SetPoint("BOTTOMLEFT", ElvuiBar2, "TOPLEFT", 0, self.Scale(4))
-			TopMainBar:SetPoint("TOPRIGHT", ElvuiBar2, "TOPRIGHT", 0, self.Scale(19))
-		else
-			TopMainBar:SetPoint("BOTTOMLEFT", ElvuiMainMenuBar, "TOPLEFT", 0, self.Scale(4))
-			TopMainBar:SetPoint("TOPRIGHT", ElvuiMainMenuBar, "TOPRIGHT", 0, self.Scale(19))
-		end
+		TopMainBar:SetPoint("BOTTOMLEFT", ElvuiMainMenuBar, "TOPLEFT", 0, self.Scale(4))
+		TopMainBar:SetPoint("TOPRIGHT", ElvuiMainMenuBar, "TOPRIGHT", 0, self.Scale(19))
 		cl:ClearAllPoints()
 	else
 		self:ToggleConfigBG()
@@ -60,13 +54,9 @@ Backend.OnUpdate = function(self)
 		-- ElvuiMainMenuBar:SetPoint("TOPLEFT", 0, self.Scale(self.CLDB.h+8))
 		-- ElvuiMainMenuBar:SetPoint("BOTTOMRIGHT")
 		
-		if C["actionbar"].aboveuf == true then
-			TopMainBar:SetPoint("BOTTOMLEFT", ElvuiBar2, "TOPLEFT", 0, self.Scale(12)+self.CLDB.h)
-			TopMainBar:SetPoint("TOPRIGHT", ElvuiBar2, "TOPRIGHT", 0, self.Scale(27)+self.CLDB.h)
-		else
-			TopMainBar:SetPoint("BOTTOMLEFT", ElvuiMainMenuBar, "TOPLEFT", 0, self.Scale(12)+self.CLDB.h)
-			TopMainBar:SetPoint("TOPRIGHT", ElvuiMainMenuBar, "TOPRIGHT", 0, self.Scale(27)+self.CLDB.h)
-		end
+		TopMainBar:SetPoint("BOTTOMLEFT", ElvuiMainMenuBar, "TOPLEFT", 0, self.Scale(12)+self.CLDB.h)
+		TopMainBar:SetPoint("TOPRIGHT", ElvuiMainMenuBar, "TOPRIGHT", 0, self.Scale(27)+self.CLDB.h)
+
 		cl:updatelook()
 		cl:Point("BOTTOMRIGHT", parent, "TOPRIGHT", -2, 4)
 	end
