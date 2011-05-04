@@ -1667,7 +1667,7 @@ function ElvuiConfig.GenerateOptionsInternal()
 								name = L["Layout"],
 								desc = L["LAYOUT_DESC"],
 								type = "range",
-								min = 1, max = 5, step = 1,								
+								min = 1, max = 6, step = 1,								
 							},
 							showspark = {
 								type = "toggle",

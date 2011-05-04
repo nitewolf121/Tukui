@@ -975,6 +975,43 @@ function E.LoadClassTimers(Elv_player, Elv_target)
 		trinketFrame:Point( "BOTTOMLEFT", playerFrame, "TOPLEFT", 0, BAR_SPACING+GROUP_SPACING );
 		trinketFrame:Point( "BOTTOMRIGHT", playerFrame, "TOPRIGHT", 0, BAR_SPACING+GROUP_SPACING );
 		trinketFrame:Show();
+	elseif ( LAYOUT == 6 ) then
+		local yOffset = 6;
+		local xOffset1 = 0
+		local xOffset2 = -2
+		
+		if ICON_POSITION == 0 or ICON_POSITION == 1 then
+			xOffset1 = 3
+		end		
+		if ICON_POSITION == 2 then
+			xOffset2 = -2
+			xOffset1 = xOffset1 + BAR_HEIGHT+7
+		end
+		if ICON_POSITION == 3 then
+			xOffset1 = 2
+			xOffset2 = xOffset2 - (BAR_HEIGHT+5)
+		end
+		
+		local targetDataSource = CreateUnitAuraDataSource( "target" );
+		
+		targetDataSource:SetSortDirection( SORT_DIRECTION );
+		
+		if ( classFilter ) then
+			targetDataSource:AddFilter( classFilter.target, TARGET_BAR_COLOR, TARGET_DEBUFF_COLOR );		
+		end
+		
+		local targetFrame = CreateAuraBarFrame( targetDataSource, Elv_target );
+		if Elv_target.Debuffs then
+			targetFrame:Point( "BOTTOMLEFT", Elv_target.Debuffs, "TOPLEFT", xOffset1, yOffset );
+			targetFrame:Point( "BOTTOMRIGHT", Elv_target.Debuffs, "TOPRIGHT", xOffset2, yOffset );
+		elseif Elv_target.Buffs then
+			targetFrame:Point( "BOTTOMLEFT", Elv_target.Buffs, "TOPLEFT", xOffset1, yOffset );
+			targetFrame:Point( "BOTTOMRIGHT", Elv_target.Buffs, "TOPRIGHT", xOffset2, yOffset );		
+		else
+			targetFrame:Point( "BOTTOMLEFT", Elv_target, "TOPLEFT", xOffset1, yOffset );
+			targetFrame:Point( "BOTTOMRIGHT", Elv_target, "TOPRIGHT", xOffset2, yOffset );		
+		end		
+		targetFrame:Show();
 	else
 		error( "Undefined layout " .. tostring( LAYOUT ) );
 	end
