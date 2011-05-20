@@ -22,4 +22,5 @@
 	<Script file="regen.lua"/>
 	<Script file="dodge.lua"/>
 	<Script file="parry.lua"/>
+	<Script file="calltoarms.lua"/>
 </Ui>	
