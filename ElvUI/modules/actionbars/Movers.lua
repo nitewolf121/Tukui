@@ -262,6 +262,7 @@ do
 			end	
 		elseif E.lowversion == true and E.actionbar.bottomrows == 3 then
 			RightBarBig:Hide()
+			SaveBars("rightbars", 0)
 		end	
 	end)
 	

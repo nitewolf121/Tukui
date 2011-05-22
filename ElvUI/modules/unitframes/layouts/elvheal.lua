@@ -885,15 +885,15 @@ local function Shared(self, unit)
 		combo.backdrop:Point("TOPLEFT", -BORDER, BORDER)
 		combo.backdrop:Point("BOTTOMRIGHT", BORDER, -BORDER)
 		combo.backdrop:SetFrameLevel(combo:GetFrameLevel() - 1)
-		
+			
 		--[[This is a little differant than everything else because we have to take into account 
 		the combobar is movable with the /moveele command, this should make it work correctly only 
 		after a reloadui.]]
 		combo:HookScript("OnShow", function()		
-			if ElementsPos and DPSComboBar and ElementsPos["DPSComboBar"]["moved"] and E.CreatedMoveEleFrames["DPSComboBar"] then return end
+			if ElementsPos and HealComboBar and ElementsPos["HealComboBar"]["moved"] == true and E.CreatedMoveEleFrames["HealComboBar"] then return end
 			combo:ClearAllPoints()
 			combo:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
-			
+				
 			health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+PORTRAIT_WIDTH), -(BORDER+POWERBAR_HEIGHT+SPACING))
 		end)
 		combo:HookScript("OnHide", function()

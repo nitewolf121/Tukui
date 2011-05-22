@@ -869,24 +869,25 @@ local function Shared(self, unit)
 		combo[4]:SetStatusBarColor(0.65, 0.63, 0.35)
 		combo[5]:SetStatusBarColor(0.33, 0.59, 0.33)
 		
+
 		combo.backdrop = CreateFrame("Frame", nil, combo)
 		combo.backdrop:SetTemplate("Default")
 		combo.backdrop:Point("TOPLEFT", -BORDER, BORDER)
 		combo.backdrop:Point("BOTTOMRIGHT", BORDER, -BORDER)
 		combo.backdrop:SetFrameLevel(combo:GetFrameLevel() - 1)
-		
+			
 		--[[This is a little differant than everything else because we have to take into account 
 		the combobar is movable with the /moveele command, this should make it work correctly only 
 		after a reloadui.]]
 		combo:HookScript("OnShow", function()		
-			if ElementsPos and DPSComboBar and ElementsPos["DPSComboBar"]["moved"] and E.CreatedMoveEleFrames["DPSComboBar"] then return end
+			if ElementsPos and DPSComboBar and ElementsPos["DPSComboBar"]["moved"] == true and E.CreatedMoveEleFrames["DPSComboBar"] then return end
 			combo:ClearAllPoints()
 			combo:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
-			
-			health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
+				
+			health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+PORTRAIT_WIDTH), -(BORDER+POWERBAR_HEIGHT+SPACING))
 		end)
 		combo:HookScript("OnHide", function()
-			health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+			health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+PORTRAIT_WIDTH), -BORDER)
 		end)
 		
 		combo:SetScript("OnUpdate", function()
