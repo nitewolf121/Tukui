@@ -113,6 +113,7 @@ DB["unitframes"] = {
 	["healthcolorbyvalue"] = true,			-- color health by current health remaining
 	["healthbackdrop"] = false,				-- enable using custom healthbackdrop color
 	["healthbackdropcolor"] = DB["media"].backdropcolor,
+	["powerclasscolor"] = true,             -- enable power color by class
 	["combatfeedback"] = false,             -- enable combattext on player and target.
 	["debuffhighlight"] = true,				--highlight frame with the debuff color if the frame is dispellable
 	["classbar"] = true,                    -- enable runebar/totembar/holypowerbar/soulshardbar/eclipsebar
