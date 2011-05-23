@@ -894,10 +894,10 @@ local function Shared(self, unit)
 			combo:ClearAllPoints()
 			combo:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
 				
-			health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+PORTRAIT_WIDTH), -(BORDER+POWERBAR_HEIGHT+SPACING))
+			health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
 		end)
 		combo:HookScript("OnHide", function()
-			health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+PORTRAIT_WIDTH), -BORDER)
+			health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
 		end)
 		
 		combo:SetScript("OnUpdate", function()
