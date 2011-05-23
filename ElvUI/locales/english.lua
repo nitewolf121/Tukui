@@ -150,7 +150,7 @@ L.chat_invalidtarget = "Invalid Target"
 L.core_autoinv_enable = "Autoinvite ON: invite"
 L.core_autoinv_enable_c = "Autoinvite ON: "
 L.core_autoinv_disable = "Autoinvite OFF"
-L.core_welcome1 = "Welcome to |cff1784d1ElvUI|r, edit by |cffff8000NiteWolf|r, Version 2.0"
+L.core_welcome1 = "Welcome to |cff1784d1ElvUI|r, edit by |cffff8000NiteWolf|r, Version 2.0.1"
 L.core_welcome2 = "Type |cff1784d1/uihelp|r for more info, type |cff1784d1/ec|r or |cff1784d1/elvui|r to config, or visit http://www.tukui.org/forums/forum.php?id=84"
 
 L.core_uihelp1 = "|cff00ff00General Slash Commands|r"
@@ -190,7 +190,7 @@ L.ElvUIInstall_ContinueMessage = "Please press the continue button to go onto th
 L.ElvUIInstall_HighRecommended = "Importance: |cff07D400High|r"
 L.ElvUIInstall_MediumRecommended = "Importance: |cffD3CF00Medium|r"
 
-L.ElvUIInstall_page1_subtitle = "Welcome to ElvUI version %s!"
+L.ElvUIInstall_page1_subtitle = "Welcome to ElvUI edit by |cffff8000NiteWolf|r version %s!"
 L.ElvUIInstall_page1_desc1 = "This install process will help you learn some of the features in ElvUI has to offer and also prepare your user interface for usage."
 L.ElvUIInstall_page1_desc2 = "You can type the /uihelp command to display a list of commands. The in-game configuration menu can be accessed with either the /ec or the /elvui commands. Press the button below if you wish to skip the installation process."
 L.ElvUIInstall_page1_button1 = "Skip Process"
