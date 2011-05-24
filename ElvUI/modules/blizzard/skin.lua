@@ -3527,7 +3527,7 @@ ElvuiSkin:SetScript("OnEvent", function(self, event, addon)
 
 				WorldMapFrame.backdrop:ClearAllPoints()
 				WorldMapFrame.backdrop:Point("TOPLEFT", 2, 2)
-				WorldMapFrame.backdrop:Point("BOTTOMRIGHT", 2, -2)
+				WorldMapFrame.backdrop:Point("BOTTOMRIGHT", 2, -8)
 			end
 			
 			--Large
@@ -5132,7 +5132,7 @@ ElvuiSkin:SetScript("OnEvent", function(self, event, addon)
 				GhostFrame.SetBackdropColor = E.dummy
 				GhostFrame.SetBackdropBorderColor = E.dummy
 				GhostFrame:ClearAllPoints()
-				GhostFrame:SetPoint("TOP", UIParent, "TOP", 0, -150)
+				GhostFrame:SetPoint("TOP", UIParent, "TOP", 0, -250)
 				SkinButton(GhostFrameContentsFrame)
 				GhostFrameContentsFrameIcon:SetTexture(nil)
 				local x = CreateFrame("Frame", nil, GhostFrame)
