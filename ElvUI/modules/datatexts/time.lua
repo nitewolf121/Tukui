@@ -208,6 +208,12 @@ Stat:RegisterEvent("PLAYER_ENTERING_WORLD")
 Stat:RegisterEvent("UPDATE_INSTANCE_INFO")
 
 Stat:SetScript("OnLeave", function() GameTooltip:Hide() end)
-Stat:SetScript("OnMouseDown", function() GameTimeFrame:Click() end)
 Stat:SetScript("OnUpdate", Update)
+Stat:SetScript("OnMouseDown", function(self, btn)
+	if btn == 'RightButton'  then
+		ToggleTimeManager()
+	else
+		GameTimeFrame:Click()
+	end
+end)
 Update(Stat, 6)
