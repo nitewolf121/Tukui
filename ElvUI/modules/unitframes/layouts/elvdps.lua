@@ -82,6 +82,7 @@ local function Shared(self, unit)
 		local POWERBAR_HEIGHT = 11*E.ResScale
 		local CASTBAR_HEIGHT = C["unitframes"].castplayerheight*E.ResScale
 		local CASTBAR_WIDTH = C["unitframes"].castplayerwidth*E.ResScale
+
 		
 		--Threat Glow
 		self:CreateShadow("Default")
@@ -390,7 +391,7 @@ local function Shared(self, unit)
 				bars:SetFrameLevel(self:GetFrameLevel() + 3)
 				bars:Point("LEFT", self, "TOPLEFT", (BORDER*2 + 6), BORDER - (POWERBAR_HEIGHT/2))
 				bars:Width(CLASSBAR_WIDTH)
-				bars:Height(POWERBAR_HEIGHT - (BORDER*2))
+				bars:Height(CLASSBAR_HEIGHT - (BORDER*2))
 
 				
 				for i = 1, 3 do					
@@ -461,7 +462,7 @@ local function Shared(self, unit)
 				runes:SetFrameStrata("MEDIUM")
 				runes:SetFrameLevel(self:GetFrameLevel() + 3)
 				runes:Width(CLASSBAR_WIDTH)
-				runes:Height(POWERBAR_HEIGHT - (BORDER*2))
+				runes:Height(CLASSBAR_HEIGHT - (BORDER*2))
 
 				for i = 1, 6 do
 					runes[i] = CreateFrame("StatusBar", nil, runes)
@@ -510,7 +511,7 @@ local function Shared(self, unit)
 				totems:SetFrameStrata("MEDIUM")
 				totems:SetFrameLevel(self:GetFrameLevel() + 3)
 				totems:Width(CLASSBAR_WIDTH)
-				totems:Height(POWERBAR_HEIGHT - (BORDER*2))
+				totems:Height(CLASSBAR_HEIGHT - (BORDER*2))
 				totems.Destroy = true
 
 				for i = 1, 4 do
@@ -568,7 +569,7 @@ local function Shared(self, unit)
 				eclipseBar:SetFrameStrata("MEDIUM")
 				eclipseBar:SetFrameLevel(self:GetFrameLevel() + 3)
 				eclipseBar:Width(CLASSBAR_WIDTH)
-				eclipseBar:Height(POWERBAR_HEIGHT - (BORDER*2))
+				eclipseBar:Height(CLASSBAR_HEIGHT - (BORDER*2))
 
 				local lunarBar = CreateFrame('StatusBar', nil, eclipseBar)
 				lunarBar:SetPoint('LEFT', eclipseBar)
@@ -642,14 +643,16 @@ local function Shared(self, unit)
 		
 		--Incoming Heals
 		if C["raidframes"].healcomm == true then
-			local mhpb = CreateFrame('StatusBar', nil, health)
+			local mhpb = CreateFrame('StatusBar', nil, self)
+			mhpb:SetFrameLevel(self:GetFrameLevel() - 2)
 			mhpb:SetPoint('BOTTOMLEFT', health:GetStatusBarTexture(), 'BOTTOMRIGHT')
 			mhpb:SetPoint('TOPLEFT', health:GetStatusBarTexture(), 'TOPRIGHT')	
 			mhpb:SetWidth(POWERBAR_WIDTH)
 			mhpb:SetStatusBarTexture(C["media"].blank)
 			mhpb:SetStatusBarColor(0, 1, 0.5, 0.25)
 			
-			local ohpb = CreateFrame('StatusBar', nil, health)
+			local ohpb = CreateFrame('StatusBar', nil, self)
+			ohpb:SetFrameLevel(self:GetFrameLevel() - 2)
 			ohpb:SetPoint('BOTTOMLEFT', mhpb:GetStatusBarTexture(), 'BOTTOMRIGHT', 0, 0)
 			ohpb:SetPoint('TOPLEFT', mhpb:GetStatusBarTexture(), 'TOPRIGHT', 0, 0)		
 			ohpb:SetWidth(mhpb:GetWidth())
@@ -674,7 +677,8 @@ local function Shared(self, unit)
 	if unit == "target" then
 		local POWERBAR_WIDTH = C["unitframes"].playtarwidth/2*E.ResScale
 		local CLASSBAR_WIDTH = (C["unitframes"].playtarwidth - (2*2))*E.ResScale
-		local POWERBAR_HEIGHT = 10*E.ResScale
+		local CLASSBAR_HEIGHT = (C["unitframes"].classbar_height)*E.ResScale
+		local POWERBAR_HEIGHT = (C["unitframes"].powerbar_height)*E.ResScale
 		local CASTBAR_HEIGHT = C["unitframes"].casttargetheight*E.ResScale
 		local CASTBAR_WIDTH = C["unitframes"].casttargetwidth*E.ResScale
 			
@@ -846,7 +850,7 @@ local function Shared(self, unit)
 		combo:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
 		combo:SetFrameStrata("LOW")
 		combo:Width(CLASSBAR_WIDTH)
-		combo:Height(POWERBAR_HEIGHT - (BORDER*2))
+		combo:Height(CLASSBAR_HEIGHT - (BORDER*2))
 
 		for i = 1, 5 do					
 			combo[i] = CreateFrame("StatusBar", nil, combo)
@@ -904,14 +908,16 @@ local function Shared(self, unit)
 		
 		--Incoming Heals
 		if C["raidframes"].healcomm == true then
-			local mhpb = CreateFrame('StatusBar', nil, health)
+			local mhpb = CreateFrame('StatusBar', nil, self)
+			mhpb:SetFrameLevel(self:GetFrameLevel() - 2)
 			mhpb:SetPoint('BOTTOMLEFT', health:GetStatusBarTexture(), 'BOTTOMRIGHT')
 			mhpb:SetPoint('TOPLEFT', health:GetStatusBarTexture(), 'TOPRIGHT')	
 			mhpb:SetWidth(POWERBAR_WIDTH)
 			mhpb:SetStatusBarTexture(C["media"].blank)
 			mhpb:SetStatusBarColor(0, 1, 0.5, 0.25)
 			
-			local ohpb = CreateFrame('StatusBar', nil, health)
+			local ohpb = CreateFrame('StatusBar', nil, self)
+			ohpb:SetFrameLevel(self:GetFrameLevel() - 2)
 			ohpb:SetPoint('BOTTOMLEFT', mhpb:GetStatusBarTexture(), 'BOTTOMRIGHT', 0, 0)
 			ohpb:SetPoint('TOPLEFT', mhpb:GetStatusBarTexture(), 'TOPRIGHT', 0, 0)		
 			ohpb:SetWidth(mhpb:GetWidth())
@@ -927,7 +933,7 @@ local function Shared(self, unit)
 					if self.otherBar:GetValue() == 0 then self.otherBar:SetAlpha(0) else self.otherBar:SetAlpha(1) end
 				end
 			}
-		end				
+		end					
 	end
 	
 	------------------------------------------------------------------------
@@ -935,7 +941,7 @@ local function Shared(self, unit)
 	------------------------------------------------------------------------
 	if (unit == "targettarget" or unit == "pet" or unit == "pettarget" or unit == "focustarget" or unit == "focus") then
 		local POWERBAR_WIDTH = C["unitframes"].smallwidth/1.5*E.ResScale
-		local POWERBAR_HEIGHT = 8
+		local POWERBAR_HEIGHT = C["unitframes"].powerbar_height*0.8
 		local CASTBAR_WIDTH = C["unitframes"].castfocuswidth*E.ResScale
 		local CASTBAR_HEIGHT = C["unitframes"].castfocusheight*E.ResScale
 		
@@ -1041,7 +1047,7 @@ local function Shared(self, unit)
 	if (unit and unit:find("arena%d") and C["unitframes"].arena == true) or (unit and unit:find("boss%d") and C["unitframes"].showboss == true) then
 		local POWERBAR_WIDTH = C["unitframes"].arenabosswidth/2*E.ResScale
 		local TRINKET_WIDTH = BOSS_HEIGHT * 0.9
-		local POWERBAR_HEIGHT = 7
+		local POWERBAR_HEIGHT = C["unitframes"].powerbar_height*0.7
 		local CASTBAR_HEIGHT = 16*E.ResScale
 		local CASTBAR_WIDTH = BOSS_WIDTH
 

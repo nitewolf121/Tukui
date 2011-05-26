@@ -112,7 +112,10 @@ L["Unit Frames"] = true
 	L["Character Portrait"] = true
 		L["Display character portrait on available frames"] = true
 	L["Class Color"] = true
+	L["Class Colored Healthbars"] = true
 		L["Color unitframes by class"] = true
+	L["Class Colored Powerbars"] = true
+	L["Color powerbars by class"] = true
 	L["Health Color"] = true
 		L["Color of the healthbar"] = true
 	L["Color Health by Value"] = true
@@ -142,6 +145,15 @@ L["Unit Frames"] = true
 	L["Display Aggro"] = true
 		L["Enable red glow around the player frame when you have aggro"] = true
 		L["Change the frame's border to red when a unit has aggro"] = true
+<<<<<<< HEAD
+=======
+	L["Mini-Classbar Theme"] = true
+		L["Make classbars smaller and restyle them"] = true
+	L["Powerbar Height"] = true
+		L["Set the height of the powerbar, this is void if you don't have powerbar offset set to zero."] = true
+	L["Classbar Height"] = true
+		L["Set the height of the classbar."] = true
+>>>>>>> upstream/master
 	
 L["Frame Sizes"] = true
 	L["Controls the size of the frame"] = true

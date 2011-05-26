@@ -977,12 +977,18 @@ function ElvuiConfig.GenerateOptionsInternal()
 							classcolor = {
 								type = "toggle",
 								order = 9,
-								name = L["Class Color"],
+								name = L["Class Colored Healthbars"],
 								desc = L["Color unitframes by class"],						
+							},
+							classcolorpower = {
+								type = "toggle",
+								order = 10,
+								name = L["Class Colored Powerbars"],
+								desc = L["Color powerbars by class"],						
 							},
 							healthcolor = {
 								type = "color",
-								order = 10,
+								order = 11,
 								name = L["Health Color"],
 								desc = L["Color of the healthbar"],
 								hasAlpha = false,
@@ -1000,19 +1006,19 @@ function ElvuiConfig.GenerateOptionsInternal()
 							},
 							healthcolorbyvalue = {
 								type = "toggle",
-								order = 11,
+								order = 12,
 								name = L["Color Health by Value"],
 								desc = L["Color the health frame by current ammount of hp remaining"],							
 							},
 							healthbackdrop = {
 								type = "toggle",
-								order = 12,
+								order = 13,
 								name = L["Custom Backdrop Color"],
 								desc = L["Enable using the custom backdrop color, otherwise 20% of the current health color gets used"],
 							},
 							healthbackdropcolor = {
 								type = "color",
-								order = 13,
+								order = 14,
 								name = L["Health Backdrop Color"],
 								desc = L["Color of the healthbar's backdrop"],
 								hasAlpha = false,
@@ -1027,12 +1033,6 @@ function ElvuiConfig.GenerateOptionsInternal()
 									t.r, t.g, t.b = r, g, b
 									StaticPopup_Show("CFG_RELOAD")
 								end,									
-							},
-							powerclasscolor = {
-								type = "toggle",
-								order = 14,
-								name = L["Class Color Powerbar"],
-								desc = L["Color powerbar by class"],
 							},
 							combatfeedback = {
 								type = "toggle",
@@ -1067,34 +1067,48 @@ function ElvuiConfig.GenerateOptionsInternal()
 							},
 							arena = {
 								type = "toggle",
-								order = 20,
+								order = 21,
 								name = L["Arena Frames"],							
 							},
 							showboss = {
 								type = "toggle",
-								order = 21,
+								order = 22,
 								name = L["Boss Frames"],							
 							},
 							swing = {
 								type = "toggle",
-								order = 22,
+								order = 23,
 								name = L["Swing Bar"],
 								desc = L["Bar that displays time between melee attacks"],
 								disabled = function() return (not db.unitframes.enable or not (IsAddOnLoaded("ElvUI_RaidDPS") or db.general.layoutoverride == "DPS")) end,	
 							},
 							displayaggro = {
 								type = "toggle",
-								order = 23,
+								order = 24,
 								name = L["Display Aggro"],
 								desc = L["Enable red glow around the player frame when you have aggro"],
 							},
 							powerbar_offset = {
 								type = "range",
-								order = 24,
+								order = 25,
 								name = L["Powerbar Offset"],
 								desc = L["Detach and offset the power bar on the main unitframes"],
 								min = 0, max = 12, step = 1,	
 							},
+							powerbar_height = {
+								type = "range",
+								order = 26,
+								name = L["Powerbar Height"],
+								desc = L["Set the height of the powerbar, this is void if you don't have powerbar offset set to zero."],
+								min = 5, max = 25, step = 1,								
+							},
+							classbar_height = {
+								type = "range",
+								order = 27,
+								name = L["Classbar Height"],
+								desc = L["Set the height of the classbar."],
+								min = 5, max = 25, step = 1,								
+							},							
 						},
 					},
 					UFSizeGroup = {
