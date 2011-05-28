@@ -974,6 +974,13 @@ function ElvuiConfig.GenerateOptionsInternal()
 								name = L["Character Portrait"],
 								desc = L["Display character portrait on available frames"],								
 							},
+							charportraithealth = {
+								type = "toggle",
+								order = 8,
+								name = L["Character Portrait on Health"],
+								desc = L["Overlay character portrait on the healthbar available frames"],
+								disabled = function() return (not db.unitframes.enable or not db.unitframes.charportrait) end,
+							},
 							classcolor = {
 								type = "toggle",
 								order = 9,
@@ -1065,6 +1072,12 @@ function ElvuiConfig.GenerateOptionsInternal()
 								desc = L["Style the unitframes with a smaller powerbar"],		
 								disabled = function() return not db.unitframes.enable or db.unitframes.powerbar_offset ~= 0 end,	
 							},
+							mini_classbar = {
+								type = "toggle",
+								order = 20,
+								name = L["Mini-Classbar Theme"],
+								desc = L["Make classbars smaller and restyle them"],
+							},
 							arena = {
 								type = "toggle",
 								order = 21,
@@ -1107,8 +1120,8 @@ function ElvuiConfig.GenerateOptionsInternal()
 								order = 27,
 								name = L["Classbar Height"],
 								desc = L["Set the height of the classbar."],
-								min = 5, max = 25, step = 1,								
-							},							
+								min = 5, max = 25, step = 1,
+							},
 						},
 					},
 					UFSizeGroup = {
