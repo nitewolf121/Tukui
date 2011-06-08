@@ -11,7 +11,7 @@ local function LoadSkin()
 		"LFDQueueFrameCapBar",
 		"LFDDungeonReadyDialog",
 	}
-
+	
 	local KillTextures = {
 		"LFDQueueFrameBackground",
 		"LFDParentFrameInset",
@@ -94,6 +94,13 @@ local function LoadSkin()
 				button.checkButton:SetDisabledTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")	
 			end
 		end
+		
+		local oldTex = button.enableButton:GetDisabledCheckedTexture():GetTexture()
+		if not button.enableButton:GetChecked() then
+			button.enableButton:SetDisabledTexture(nil)
+		else
+			button.enableButton:SetDisabledTexture(oldTex)	
+		end
 	end)
 	
 	
@@ -110,12 +117,13 @@ local function LoadSkin()
 		E.SkinButton(_G[buttons[i]])
 	end	
 
-	for i= 1,15 do
+	for i=1, NUM_LFD_CHOICE_BUTTONS do
 		E.SkinCheckBox(_G["LFDQueueFrameSpecificListButton"..i.."EnableButton"])
 	end
 	
 	LFDQueueFrameCapBar:SetPoint("LEFT", 40, 0)
-	
+	LFDDungeonReadyDialog:SetTemplate("Transparent")
+	LFDDungeonReadyDialog:CreateShadow("Default")			
 	LFDQueueFrameSpecificListScrollFrame:StripTextures()
 	LFDQueueFrameSpecificListScrollFrame:Height(LFDQueueFrameSpecificListScrollFrame:GetHeight() - 8)
 	LFDParentFrame:CreateBackdrop("Transparent")
