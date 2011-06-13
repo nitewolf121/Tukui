@@ -149,9 +149,9 @@ E.LoadUFFunctions = function(layout)
 			button:SetTemplate("Default")
 			button:SetBackdropBorderColor(unpack(C["media"].bordercolor))
 			if direction == "LEFT" then
-				button:Point("RIGHT", castbar, "LEFT", -4*E.ResScale, 0)
+				button:Point("RIGHT", castbar, "LEFT", -3*E.ResScale, 0)
 			else
-				button:Point("LEFT", castbar, "RIGHT", 4*E.ResScale, 0)
+				button:Point("LEFT", castbar, "RIGHT", 3*E.ResScale, 0)
 			end
 			
 			castbar.Icon = button:CreateTexture(nil, "ARTWORK")
