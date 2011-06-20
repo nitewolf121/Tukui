@@ -78,6 +78,7 @@ mini:CreatePanel("Default", E.minimapsize, E.minimapsize, "CENTER", Minimap, "CE
 mini:ClearAllPoints()
 mini:SetPoint("TOPLEFT", E.Scale(-2), E.Scale(2))
 mini:SetPoint("BOTTOMRIGHT", E.Scale(2), E.Scale(-2))
+mini:SetFrameLevel(2)
 ElvuiMinimap:CreateShadow("Default")
 ElvuiMinimap.shadow:SetFrameLevel(0)
 TukuiMinimap = ElvuiMinimap -- conversion
@@ -179,9 +180,14 @@ if C["actionbar"].enable == true then
 end
 
 -- VEHICLE BAR
+	local yoffset = 0
+	if C["general"].lowerpanel == true then
+		yoffset = yoffset + 30
+	end
+		
 if C["actionbar"].enable == true then
 	local vbarbg = CreateFrame("Frame", "ElvuiVehicleBarBackground", UIParent)
-	vbarbg:CreatePanel("Default", 1, 1, "BOTTOM", UIParent, "BOTTOM", 0, E.Scale(4))
+	vbarbg:CreatePanel("Default", 1, 1, "BOTTOM", UIParent, "BOTTOM", 0, E.Scale(yoffset + 4))
 	vbarbg:SetWidth((E.buttonsize * 12) + (E.buttonspacing * 13))
 	vbarbg:SetHeight(E.buttonsize + (E.buttonspacing * 2))
 	vbarbg:CreateShadow("Default")
@@ -267,6 +273,7 @@ infoleft:SetPoint("BOTTOMRIGHT", chatlph, "BOTTOMRIGHT", E.Scale(-17), E.Scale(-
 	infoleftLbutton:FontString(nil, C["media"].font, C["general"].fontscale, "THINOUTLINE")
 	infoleftLbutton.text:SetText("<")
 	infoleftLbutton.text:SetPoint("CENTER")
+	infoleftLbutton.text:SetTextColor(unpack(C["media"].valuecolor))
 
 	infoleftRbutton:FontString(nil, C["media"].font, C["general"].fontscale, "THINOUTLINE")
 	infoleftRbutton.text:SetText("L")
@@ -300,6 +307,7 @@ inforight:SetPoint("BOTTOMRIGHT", chatrph, "BOTTOMRIGHT", E.Scale(-17), E.Scale(
 	inforightLbutton:FontString(nil, C["media"].font, C["general"].fontscale, "THINOUTLINE")
 	inforightLbutton.text:SetText("C")
 	inforightLbutton.text:SetPoint("CENTER")
+	inforightLbutton.text:SetTextColor(unpack(C["media"].valuecolor))
 	inforightLbutton:SetScript("OnClick", function(self)
 		if not IsAddOnLoaded("ElvUI_Config") then return end
 		local ElvuiConfig = LibStub("AceAddon-3.0"):GetAddon("ElvuiConfig")
@@ -320,6 +328,7 @@ inforight:SetPoint("BOTTOMRIGHT", chatrph, "BOTTOMRIGHT", E.Scale(-17), E.Scale(
 	inforightRbutton:FontString(nil, C["media"].font, C["general"].fontscale, "THINOUTLINE")
 	inforightRbutton.text:SetText(">")
 	inforightRbutton.text:SetPoint("CENTER")
+	inforightRbutton.text:SetTextColor(unpack(C["media"].valuecolor))
 	
 	inforight:CreateShadow("Default")
 	inforight.shadow:ClearAllPoints()
