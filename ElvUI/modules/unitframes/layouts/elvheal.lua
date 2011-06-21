@@ -483,8 +483,10 @@ local function Shared(self, unit)
 			--Reposition Health Bar for ClassBars
 			local DEPTH
 			if MINI_CLASSBAR == true then
+				PLAYER_HEIGHT = PLAYER_HEIGHT + (POWERBAR_HEIGHT/2)
 				DEPTH = -(BORDER+(CLASSBAR_HEIGHT/2))
 			else
+				PLAYER_HEIGHT = PLAYER_HEIGHT + (BORDER+POWERBAR_HEIGHT+SPACING)
 				DEPTH = -(BORDER+CLASSBAR_HEIGHT+SPACING)
 			end
 			
@@ -500,7 +502,7 @@ local function Shared(self, unit)
 				local bars = CreateFrame("Frame", nil, self)
 				
 				if MINI_CLASSBAR then
-					bars:Point("CENTER", health.backdrop, "TOP", -(BORDER*3 + 6), 0)
+					bars:Point("CENTER", health.backdrop, "TOP", -(BORDER*3 + 6), -BORDER)
 					bars:SetFrameStrata("MEDIUM")
 				else
 					bars:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
@@ -592,7 +594,7 @@ local function Shared(self, unit)
 				if MINI_CLASSBAR then
 					CLASSBAR_WIDTH = CLASSBAR_WIDTH * 3/2 --Multiply by reciprocal to reset previous setting
 					CLASSBAR_WIDTH = CLASSBAR_WIDTH * 4/5
-					runes:Point("CENTER", health.backdrop, "TOP", -(BORDER*3 + 8), 0)
+					runes:Point("CENTER", health.backdrop, "TOP", -(BORDER*3 + 8), -BORDER)
 					runes:SetFrameStrata("MEDIUM")
 				else
 					runes:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
@@ -664,7 +666,7 @@ local function Shared(self, unit)
 				else
 					CLASSBAR_WIDTH = CLASSBAR_WIDTH * 3/2 --Multiply by reciprocal to reset previous setting
 					CLASSBAR_WIDTH = CLASSBAR_WIDTH * 4/5
-					totems:Point("CENTER", health.backdrop, "TOP", -(BORDER*3 + 6), 0)
+					totems:Point("CENTER", health.backdrop, "TOP", -(BORDER*3 + 6), -BORDER)
 					totems:SetFrameStrata("MEDIUM")			
 				end
 				totems:Width(CLASSBAR_WIDTH)
@@ -741,7 +743,7 @@ local function Shared(self, unit)
 					eclipseBar:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
 					eclipseBar:SetFrameStrata("LOW")
 				else
-					eclipseBar:Point("LEFT", health.backdrop, "TOPLEFT", (BORDER*2 + 4), 0)
+					eclipseBar:Point("LEFT", health.backdrop, "TOPLEFT", (BORDER*2 + 4), -BORDER)
 					eclipseBar:SetFrameStrata("MEDIUM")						
 				end
 				eclipseBar:Width(CLASSBAR_WIDTH)
