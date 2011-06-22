@@ -71,9 +71,9 @@ local function SetRightTooltipPos(self)
 		else
 			if E.CheckAddOnShown() == true then
 				if C["chat"].showbackdrop == true and E.ChatRightShown == true then
-					self:Point("BOTTOMRIGHT", ChatRBackground, "TOPRIGHT", 0, 18)	
+					self:Point("BOTTOMRIGHT", ChatRBGDummy, "TOPRIGHT", 0, 18)	
 				else
-					self:Point("BOTTOMRIGHT", ChatRBackground, "TOPRIGHT", -8, -14)		
+					self:Point("BOTTOMRIGHT", ChatRBGDummy, "TOPRIGHT", -8, -14)		
 				end	
 			else
 				self:Point("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -12, 47)	
@@ -416,11 +416,7 @@ ElvuiTooltip:SetScript("OnEvent", function(self, event, addon)
 	ItemRefTooltip:HookScript("OnTooltipSetItem", SetStyle)
 	FriendsTooltip:SetTemplate("Default", true)
 	BNToastFrame:SetTemplate("Default", true)
-	DropDownList1MenuBackdrop:SetTemplate("Default", true)
-	DropDownList2MenuBackdrop:SetTemplate("Default", true)
-	DropDownList1Backdrop:SetTemplate("Default", true)
-	DropDownList2Backdrop:SetTemplate("Default", true)
-
+	
 	BNToastFrame:HookScript("OnShow", function(self)
 		self:ClearAllPoints()
 		self:SetPoint("TOPLEFT", UIParent, "TOPLEFT", E.Scale(5), E.Scale(-5))

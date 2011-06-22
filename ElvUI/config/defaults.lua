@@ -289,6 +289,7 @@ DB["datatext"] = {
 	["specswitch"] = 1,
 	["hit"] = 11,
 	["haste"] = 12,
+	["expertise"] = 0,
 	["mastery"] = 0,
 	["crit"] = 0,
 	["manaregen"] = 0,

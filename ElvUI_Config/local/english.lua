@@ -385,7 +385,8 @@ L["Data Texts"] = true
 		L["Display parry chance"] = true	
 	L["Call to Arms"] = true
 		L["Display the active roles that will recieve a reward for completing a random dungeon"] = true
-	
+	L["Expertise Rating"] = true
+		L["Display Expertise Rating"] = true
 --chat
 L["Chat"] = true
 	L["CHAT_DESC"] = "Adjust chat settings"
