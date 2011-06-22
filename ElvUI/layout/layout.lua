@@ -12,7 +12,7 @@ E.minimapsize = E.Scale(165)
 --BOTTOM PANEL
 
 local f = CreateFrame("Frame", "ElvuiBottomPanel", UIParent)
-f:SetHeight(23)
+f:SetHeight(18)
 f:SetWidth(UIParent:GetWidth() + (E.mult * 2))
 f:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", -E.mult, -E.mult)
 f:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", E.mult, -E.mult)
@@ -22,7 +22,7 @@ f:SetFrameLevel(1)
 --TOP PANEL
 if C["general"].upperpanel == true then
 	local f = CreateFrame("Frame", "ElvuiTopPanel", UIParent)
-	f:SetHeight(23)
+	f:SetHeight(18)
 	f:SetWidth(UIParent:GetWidth() + (E.mult * 2))
 	f:SetPoint("TOPLEFT", UIParent, "TOPLEFT", -E.mult, E.mult)
 	f:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", E.mult, E.mult)
@@ -205,13 +205,13 @@ local PADDING = 12
 local chatlph = CreateFrame("Frame", "ChatLPlaceHolder", UIParent)
 chatlph:SetWidth(C["chat"].chatwidth)
 chatlph:SetHeight(C["chat"].chatheight+6)
-chatlph:Point("BOTTOMLEFT", ElvuiBottomPanel, "TOPLEFT", PADDING,  PADDING)
+chatlph:Point("BOTTOMLEFT", ElvuiBottomPanel, "TOPLEFT", PADDING,  19)
 
 -- CHAT PLACEHOLDER RIGHT
 local chatrph = CreateFrame("Frame", "ChatRPlaceHolder", UIParent)
 chatrph:SetWidth(C["chat"].chatwidth)
 chatrph:SetHeight(C["chat"].chatheight+6)
-chatrph:Point("BOTTOMRIGHT", ElvuiBottomPanel, "TOPRIGHT", -PADDING,  PADDING)
+chatrph:Point("BOTTOMRIGHT", ElvuiBottomPanel, "TOPRIGHT", -PADDING,  19)
 
 -- CHAT BACKGROUND LEFT
 local chatlbgdummy = CreateFrame("Frame", "ChatLBackground", UIParent)
