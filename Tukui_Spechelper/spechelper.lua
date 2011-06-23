@@ -1,7 +1,7 @@
 -----------------------------------------------
 -- Spec Helper, by EPIC
 -----------------------------------------------
-local T, C, L = unpack(Tukui) -- Import: T - functions, constants, variables; C - config; L - locales
+local   E, C, L, DB = unpack(ElvUI) -- Import: E - functions, constants, variables; C - config; L - locales
 
 -- colors
 local hoverovercolor = {.4, .4, .4}
@@ -59,9 +59,9 @@ spec:SetTemplate("Default", true)
 spec:CreateShadow("Default")
 
 	-- Positioning
-	if TukuiMinimapStatsLeft and TukuiMinimapStatsRight then
-		spec:SetPoint("TOPLEFT", TukuiMinimapStatsLeft, "BOTTOMLEFT", 0, -16)
-		spec:SetPoint("TOPRIGHT", TukuiMinimapStatsRight, "BOTTOMRIGHT", -23, -16)
+	if TukuiMinimapStatsLeft and ElvuiMinimapStatsRight then
+		spec:SetPoint("TOPLEFT", ElvuiMinimapStatsLeft, "BOTTOMLEFT", 0, -16)
+		spec:SetPoint("TOPRIGHT", ElvuiMinimapStatsRight, "BOTTOMRIGHT", -23, -16)
 	end
 	if RaidBuffReminder then
 		spec:SetPoint("TOPLEFT", ElvuiMinimapStatsLeft, "BOTTOMLEFT", 0, -16)
@@ -79,12 +79,12 @@ spec:CreateShadow("Default")
 		if not GetPrimaryTalentTree() then spec.t:SetText("No talents") return end
 		local tree1, tree2, tree3, Tree = ActiveTalents()
 		name = select(2, GetTalentTabInfo(Tree))
-		spec.t:SetText(name.."|r: "..panelcolor..tree1.."/"..tree2.."/"..tree3)
+		spec.t:SetText(name.."|r: "..E.ValColor..tree1.."|r/"..E.ValColor..tree2.."|r/"..E.ValColor..tree3)
 		if HasDualSpec() then
 			local sTree1, sTree2, sTree3, sTree = UnactiveTalents()
 			sName = select(2, GetTalentTabInfo(sTree))
-			spec:SetScript("OnEnter", function() spec.t:SetText(cm..sName.."|r: "..panelcolor..sTree1.."/"..sTree2.."/"..sTree3) end)
-			spec:SetScript("OnLeave", function() spec.t:SetText(name.."|r: "..panelcolor..tree1.."/"..tree2.."/"..tree3) end)
+			spec:SetScript("OnEnter", function() spec.t:SetText(cm..sName.."|r: "..E.ValColor..sTree1.."|r/"..E.ValColor..sTree2.."|r/"..E.ValColor..sTree3) end)
+			spec:SetScript("OnLeave", function() spec.t:SetText(name.."|r: "..E.ValColor..tree1.."|r/"..E.ValColor..tree2.."|r/"..E.ValColor..tree3) end)
 		end
 		int = 1
 		self:SetScript("OnUpdate", nil)
@@ -218,7 +218,7 @@ binds:SetAttribute("macrotext", "/bindkey")
 --Move UI
 ------------
 local mui = CreateFrame("Button", "MoveUI", Binds, "SecureActionButtonTemplate")
-mui:CreatePanel("Default", 50, 19, "RIGHT", Binds, "LEFT", -3, 0)
+mui:CreatePanel("Default", 60, 19, "RIGHT", Binds, "LEFT", -3, 0)
 mui:SetTemplate("Default", true)
 mui:CreateShadow("Default")
 		
