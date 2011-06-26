@@ -90,10 +90,12 @@ barmod.ApplySettings = function(self, win)
 		end
 	end
 	
-	win.bargroup.button:SetFrameStrata("MEDIUM")
-	win.bargroup.button:SetFrameLevel(5)	
-	win.bargroup.bgframe:SetFrameStrata("MEDIUM")
-	win.bargroup:SetFrameStrata("MEDIUM")
+	if C["skin"].embedright == "Skada" then
+		win.bargroup.button:SetFrameStrata("MEDIUM")
+		win.bargroup.button:SetFrameLevel(5)	
+		win.bargroup.bgframe:SetFrameStrata("MEDIUM")
+		win.bargroup:SetFrameStrata("MEDIUM")
+	end
 	
 	self:AdjustBackgroundHeight(win)
 	win.bargroup:SetMaxBars(win.db.barmax)
@@ -188,5 +190,10 @@ if C["skin"].embedright == "Skada" then
 		button:SetScript('OnMouseDown', function(self) self.tex:Point('TOPRIGHT', -4, -4) end)
 		button:SetScript('OnMouseUp', function(self) self.tex:Point('TOPRIGHT', -2, -2) end)
 		button:SetScript('OnClick', function(self) Skada:ToggleWindow() end)
+	end
+	
+	if C["skin"].embedrighttoggle == true then
+		ChatRBG:HookScript("OnShow", function() Skada:SetActive(false) end)
+		ChatRBG:HookScript("OnHide", function() Skada:SetActive(true) end)
 	end
 end
