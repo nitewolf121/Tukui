@@ -266,7 +266,9 @@ L["Raid Frames"] = true
 	L["25 Man Layout Party"] = true
 		L["Use the 25 man layout inside a party group"] = true
 	L["Display Debuffs"] = true
-	
+	L["Color Buff Icons"] = true
+		L["If turned off the buff icon on raid/party frames will be displayed as the actual texture of the icon instead of a color icon"] = true
+		
 --Classtimer		
 L["Class Timers"] = true
 	L["CLASSTIMER_DESC"] = "Adjust settings for classtimers"
@@ -589,6 +591,8 @@ L["SPELL_FILTER_DESC"] = "Filter everything from spell names to nameplate names.
 		L["Position where the buff appears on the frame"] = true
 	L["Any Unit"] = true
 		L["Display the buff if cast by anyone?"] = true
+	L["Display when missing"] = true
+		L["Only display the icon when the unit doesn't have the buff."] = true
 	L["Unit Type"] = true
 		L["Only display on this type of unit"] = true
 		L["All"] = true
