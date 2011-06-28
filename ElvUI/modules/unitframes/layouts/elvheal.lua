@@ -1615,14 +1615,6 @@ local function LoadHealLayout()
 		end
 		
 		party = oUF:SpawnHeader("oUF_noParty", nil, "party", "showParty", true)
-		local blizzloader = CreateFrame("Frame")
-		blizzloader:RegisterEvent("ADDON_LOADED")
-		blizzloader:SetScript("OnEvent", function(self, event, addon)
-			if addon == "Elvui_RaidHeal" then 
-				CompactRaidFrameContainer:Kill()
-				CompactPartyFrame:Kill()
-			end
-		end)
 	end
 	
 	E.LoadMoveElements("Heal")
