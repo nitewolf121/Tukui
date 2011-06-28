@@ -2,7 +2,7 @@ local _, Backend = ...
 
 if Backend.UI ~= "ElvUI" then return end
 
-local E, C, L = unpack(ElvUI)
+local E, C, L, DB = unpack(ElvUI)
 local cl = Backend.CL
 
 Backend["Defaults"]["Parent"] = "ElvuiActionBarBackground"
