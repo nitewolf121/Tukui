@@ -25,7 +25,7 @@ ns.Filger_Spells = {
 			Interval = 4,
 			Opacity = 1,
 			Mode = "ICON",
-			setPoint = { "RIGHT", UIParent, "CENTER", -198, -146 },
+			setPoint = { "RIGHT", UIParent, "CENTER", -198, 54 },
 
 			-- Lifebloom/Blühendes Leben
 			{ spellID = 33763, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
@@ -42,7 +42,7 @@ ns.Filger_Spells = {
 			Interval = 4,
 			Opacity = 1,
 			Mode = "ICON",
-			setPoint = { "LEFT", UIParent, "CENTER", 198, -146 },
+			setPoint = { "LEFT", UIParent, "CENTER", 198, 54 },
 
 			-- Lifebloom/Blühendes Leben
 			{ spellID = 33763, size = 32, unitId = "target", caster = "player", filter = "BUFF" },
@@ -58,7 +58,7 @@ ns.Filger_Spells = {
 			Direction = "LEFT",
 			Interval = 4,
 			Mode = "ICON",
-			setPoint = { "RIGHT", UIParent, "CENTER", -198, -190 },
+			setPoint = { "RIGHT", UIParent, "CENTER", -198, 10 },
 
 			-- Eclipse (Lunar)/Mondfinsternis
 			{ spellID = 48518, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
@@ -84,7 +84,7 @@ ns.Filger_Spells = {
 			Direction = "RIGHT",
 			Interval = 4,
 			Mode = "ICON",
-			setPoint = { "LEFT", UIParent, "CENTER", 198, -190 },
+			setPoint = { "LEFT", UIParent, "CENTER", 198, 10 },
 
 			-- Hibernate/Winterschlaf
 			{ spellID = 2637, size = 47, unitId = "target", caster = "all", filter = "DEBUFF" },
@@ -119,7 +119,7 @@ ns.Filger_Spells = {
 			IconSide = "LEFT",
 			Interval = 4,
 			Mode = "BAR",
-			setPoint = { "LEFT", UIParent, "CENTER", 198, 100 },
+			setPoint = { "LEFT", UIParent, "CENTER", 198, 300 },
 
 			-- Hibernate/Winterschlaf
 			{ spellID = 2637, size = 32, barWidth = 200, unitId = "focus", caster = "all", filter = "DEBUFF" },
@@ -135,7 +135,7 @@ ns.Filger_Spells = {
 			IconSide = "RIGHT",
 			Interval = 4,
 			Mode = "BAR",
-			setPoint = { "RIGHT", UIParent, "CENTER", -198, 100 },
+			setPoint = { "RIGHT", UIParent, "CENTER", -198, 300 },
 
 			-- Swiftmend/Rasche Heilung
 			{ spellID = 18562, size = 32, barWidth = 200, filter = "CD" },
@@ -819,7 +819,7 @@ ns.Filger_Spells = {
 			Direction = "LEFT",
 			Interval = 4,
 			Mode = "ICON",
-			setPoint = { "RIGHT", UIParent, "CENTER", -198, -233 },
+			setPoint = { "RIGHT", UIParent, "CENTER", -198, -33 },
 
 			-- Geisterstunde/Witching Hour
 			{ spellID = 90887, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
@@ -852,7 +852,7 @@ ns.Filger_Spells = {
 			Direction = "LEFT",
 			Interval = 4,
 			Mode = "ICON",
-			setPoint = { "RIGHT", UIParent, "CENTER", -198, -90 },
+			setPoint = { "RIGHT", UIParent, "CENTER", -198, 110 },
 
 			-- Death Knight
 			-- Gnaw (Ghoul)
@@ -868,7 +868,7 @@ ns.Filger_Spells = {
 			-- Icy Clutch (Chilblains)
 			--{ spellID = 50436, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			-- Hungering Cold
-			{ spellID = 51209, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
+			{ spellID = 61058, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 
 			-- Druid
 			-- Cyclone
@@ -891,8 +891,6 @@ ns.Filger_Spells = {
 			-- Hunter
 			-- Freezing Trap Effect
 			{ spellID = 3355, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
-			-- Freezing Arrow Effect
-			--{ spellID = 60210, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			-- Scare Beast
 			{ spellID = 1513, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			-- Scatter Shot
@@ -930,9 +928,7 @@ ns.Filger_Spells = {
 			-- Web (Spider)
 			{ spellID = 4167, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			-- Froststorm Breath (Chimera)
-			{ spellID = 51209, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
-			-- Tendon Rip (Hyena)
-			{ spellID = 51209, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
+			{ spellID = 95725, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 
 			-- Mage
 			-- Dragon's Breath
@@ -1143,7 +1139,7 @@ ns.Filger_Spells = {
 			Direction = "RIGHT",
 			Interval = 4,
 			Mode = "ICON",
-			setPoint = { "LEFT", UIParent, "CENTER", 198, -90 },
+			setPoint = { "LEFT", UIParent, "CENTER", 198, 110 },
 
 			-- Aspect of the Pack
 			{ spellID = 13159, size = 72, unitId = "player", caster = "player", filter = "BUFF" },

@@ -1,4 +1,4 @@
-## Interface: 40100
+## Interface: 40200
 ## Title: |cffC495DDTukui CoolLine|r
 ## Notes: Tukui CoolLine Skin
 ## Author: Tacsko
