@@ -31,7 +31,7 @@ end
 local btnnames = {}
 
 local function CreateMoverButton(name, text)
-	local b = CreateFrame("Button", name, UIParent)
+	local b = CreateFrame("Button", name, E.UIParent)
 	b:SetTemplate("Default", true)
 	b:RegisterEvent("PLAYER_REGEN_DISABLED")
 	b:SetScript("OnEvent", Button_OnEvent)
@@ -147,8 +147,8 @@ barloader:SetScript("OnEvent", function(self, addon)
 		RightBarBig:SetPoint("TOPRIGHT", ElvuiPetBar, "LEFT", E.Scale(-3), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
 		RightBarBig:SetPoint("BOTTOMLEFT", ElvuiPetBar, "LEFT", E.Scale(-19), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))			
 	else
-		RightBarBig:SetPoint("TOPRIGHT", UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
-		RightBarBig:SetPoint("BOTTOMLEFT", UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
+		RightBarBig:SetPoint("TOPRIGHT", E.UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
+		RightBarBig:SetPoint("BOTTOMLEFT", E.UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
 	end
 	
 	ElvuiPetBar:HookScript("OnShow", function(self)
@@ -163,8 +163,8 @@ barloader:SetScript("OnEvent", function(self, addon)
 		if InCombatLockdown() then return end
 		if C["actionbar"].bottompetbar == true then return end
 		RightBarBig:ClearAllPoints()
-		RightBarBig:SetPoint("TOPRIGHT", UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
-		RightBarBig:SetPoint("BOTTOMLEFT", UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
+		RightBarBig:SetPoint("TOPRIGHT", E.UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
+		RightBarBig:SetPoint("BOTTOMLEFT", E.UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
 	end)
 	
 	RightBarBig:HookScript("OnEnter", function()
@@ -174,8 +174,8 @@ barloader:SetScript("OnEvent", function(self, addon)
 			RightBarBig:SetPoint("TOPRIGHT", ElvuiPetBar, "LEFT", E.Scale(-3), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
 			RightBarBig:SetPoint("BOTTOMLEFT", ElvuiPetBar, "LEFT", E.Scale(-19), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))			
 		else
-			RightBarBig:SetPoint("TOPRIGHT", UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
-			RightBarBig:SetPoint("BOTTOMLEFT", UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
+			RightBarBig:SetPoint("TOPRIGHT", E.UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
+			RightBarBig:SetPoint("BOTTOMLEFT", E.UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
 		end
 	end)
 	
@@ -254,8 +254,8 @@ do
 				RightBarBig:SetPoint("TOPRIGHT", ElvuiPetBar, "LEFT", E.Scale(-3), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
 				RightBarBig:SetPoint("BOTTOMLEFT", ElvuiPetBar, "LEFT", E.Scale(-19), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))			
 			else
-				RightBarBig:SetPoint("TOPRIGHT", UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
-				RightBarBig:SetPoint("BOTTOMLEFT", UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
+				RightBarBig:SetPoint("TOPRIGHT", E.UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
+				RightBarBig:SetPoint("BOTTOMLEFT", E.UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
 			end	
 		elseif E.lowversion == true and E.actionbar.bottomrows == 3 then
 			RightBarBig:Hide()
@@ -304,8 +304,8 @@ do
 				RightBarBig:SetPoint("TOPRIGHT", ElvuiPetBar, "LEFT", E.Scale(-3), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
 				RightBarBig:SetPoint("BOTTOMLEFT", ElvuiPetBar, "LEFT", E.Scale(-19), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))			
 			else
-				RightBarBig:SetPoint("TOPRIGHT", UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
-				RightBarBig:SetPoint("BOTTOMLEFT", UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
+				RightBarBig:SetPoint("TOPRIGHT", E.UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
+				RightBarBig:SetPoint("BOTTOMLEFT", E.UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
 			end	
 		elseif E.lowversion == true and E.actionbar.bottomrows == 3 then
 			RightBarBig:Hide()
@@ -340,8 +340,8 @@ do
 					RightBarBig:SetPoint("TOPRIGHT", ElvuiPetBar, "LEFT", E.Scale(-3), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
 					RightBarBig:SetPoint("BOTTOMLEFT", ElvuiPetBar, "LEFT", E.Scale(-19), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))			
 				else
-					RightBarBig:SetPoint("TOPRIGHT", UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
-					RightBarBig:SetPoint("BOTTOMLEFT", UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
+					RightBarBig:SetPoint("TOPRIGHT", E.UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
+					RightBarBig:SetPoint("BOTTOMLEFT", E.UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
 				end	
 			end
 		else
@@ -383,8 +383,8 @@ do
 					RightBarBig:SetPoint("TOPRIGHT", ElvuiPetBar, "LEFT", E.Scale(-3), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
 					RightBarBig:SetPoint("BOTTOMLEFT", ElvuiPetBar, "LEFT", E.Scale(-19), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))			
 				else
-					RightBarBig:SetPoint("TOPRIGHT", UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
-					RightBarBig:SetPoint("BOTTOMLEFT", UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
+					RightBarBig:SetPoint("TOPRIGHT", E.UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
+					RightBarBig:SetPoint("BOTTOMLEFT", E.UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
 				end			
 			end
 		else
@@ -424,8 +424,8 @@ do
 					RightBarBig:SetPoint("TOPRIGHT", ElvuiPetBar, "LEFT", E.Scale(-3), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
 					RightBarBig:SetPoint("BOTTOMLEFT", ElvuiPetBar, "LEFT", E.Scale(-19), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))			
 				else
-					RightBarBig:SetPoint("TOPRIGHT", UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
-					RightBarBig:SetPoint("BOTTOMLEFT", UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
+					RightBarBig:SetPoint("TOPRIGHT", E.UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
+					RightBarBig:SetPoint("BOTTOMLEFT", E.UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
 				end			
 			end		
 		end
@@ -446,8 +446,8 @@ do
 					RightBarBig:SetPoint("TOPRIGHT", ElvuiPetBar, "LEFT", E.Scale(-3), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
 					RightBarBig:SetPoint("BOTTOMLEFT", ElvuiPetBar, "LEFT", E.Scale(-19), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))			
 				else
-					RightBarBig:SetPoint("TOPRIGHT", UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
-					RightBarBig:SetPoint("BOTTOMLEFT", UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
+					RightBarBig:SetPoint("TOPRIGHT", E.UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
+					RightBarBig:SetPoint("BOTTOMLEFT", E.UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
 				end
 			else
 				SaveBars("rightbars", 1)
@@ -461,8 +461,8 @@ do
 					RightBarBig:SetPoint("TOPRIGHT", ElvuiPetBar, "LEFT", E.Scale(-3), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
 					RightBarBig:SetPoint("BOTTOMLEFT", ElvuiPetBar, "LEFT", E.Scale(-19), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))			
 				else
-					RightBarBig:SetPoint("TOPRIGHT", UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
-					RightBarBig:SetPoint("BOTTOMLEFT", UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
+					RightBarBig:SetPoint("TOPRIGHT", E.UIParent, "RIGHT", E.Scale(-1), (ElvuiActionBarBackgroundRight:GetHeight() * 0.2))
+					RightBarBig:SetPoint("BOTTOMLEFT", E.UIParent, "RIGHT", E.Scale(-16), -(ElvuiActionBarBackgroundRight:GetHeight() * 0.2))		
 				end		
 			elseif E["actionbar"].rightbars == 2 then
 				SaveBars("rightbars", 1)

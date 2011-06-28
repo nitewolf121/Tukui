@@ -1295,7 +1295,7 @@ local function Shared(self, unit)
 		elseif unit == "focus" and C["unitframes"].unitcastbar == true	then
 			--Cast Bar
 			local castbar = E.ConstructCastBar(self, CASTBAR_WIDTH, CASTBAR_HEIGHT, "LEFT")
-			castbar:Point("TOP", UIParent, "TOP", 0, -150)
+			castbar:Point("TOP", E.UIParent, "TOP", 0, -150)
 			
 			self.Castbar = castbar
 		end
@@ -1579,7 +1579,7 @@ local function LoadHealLayout()
 			'point' , 'BOTTOM',
 			'template', 'Elv_Mtt'
 		)
-		tank:Point("LEFT", UIParent, "LEFT", 6, 250)
+		tank:Point("LEFT", E.UIParent, "LEFT", 6, 250)
 	end
 
 	if C["raidframes"].mainassist == true then
@@ -1597,7 +1597,7 @@ local function LoadHealLayout()
 		if C["raidframes"].maintank == true then 
 			assist:Point("TOPLEFT", ElvHealMainTank, "BOTTOMLEFT", 0, -50)
 		else
-			assist:Point("LEFT", UIParent, "LEFT", 6, 250)
+			assist:Point("LEFT", E.UIParent, "LEFT", 6, 250)
 		end
 	end
 
