@@ -45,11 +45,7 @@ local function GetBar()
 	return condition
 end
 
-function E.PositionMainBar()
-	if not E.IsPTRVersion() then
-		MainMenuBar_UpdateKeyRing()
-	end
-	
+function E.PositionMainBar()	
 	local button
 	for i = 1, 12 do
 		button = _G["ActionButton"..i]
