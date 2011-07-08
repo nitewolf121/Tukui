@@ -203,7 +203,7 @@ end
 -- CHAT PLACEHOLDER LEFT
 local PADDING = 12
 local xOffset = 0
-local yOffset = 0
+local yOffset = 5
 
 if C["chat"].style ~= "ElvUI" then
 	xOffset = -8
@@ -228,6 +228,7 @@ chatlbg:SetWidth(C["chat"].chatwidth + 14)
 chatlbg:SetHeight(C["chat"].chatheight + 68)
 chatlbg:Point("CENTER", chatlph, "CENTER")
 chatlbg:SetFrameStrata("BACKGROUND")
+chatlbg:SetFrameLevel(4)
 
 -- CHAT BACKGROUND LEFT DUMMY (WHEN WE NEED TO ANCHOR SOMETHING TO THE LEFT CHAT BACKGROUND, ANCHOR IT TO THIS, OTHERWISE IF THE ANCHOR FRAME IS PROTECTED THEN WE CANNOT TOGGLE CHAT IN COMBAT
 local chatlbgdummy = CreateFrame("Frame", "ChatLBGDummy", E.UIParent)
@@ -241,6 +242,7 @@ chatrbg:SetWidth(C["chat"].chatwidth + 14)
 chatrbg:SetHeight(C["chat"].chatheight + 68)
 chatrbg:Point("CENTER", chatrph, "CENTER")
 chatrbg:SetFrameStrata("BACKGROUND")
+chatrbg:SetFrameLevel(4)
 
 -- CHAT BACKGROUND RIGHT DUMMY (WHEN WE NEED TO ANCHOR SOMETHING TO THE RIGHT CHAT BACKGROUND, ANCHOR IT TO THIS, OTHERWISE IF THE ANCHOR FRAME IS PROTECTED THEN WE CANNOT TOGGLE CHAT IN COMBAT
 local chatrbgdummy = CreateFrame("Frame", "ChatRBGDummy", E.UIParent)
